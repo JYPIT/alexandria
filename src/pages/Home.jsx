@@ -10,13 +10,14 @@ const Grid = styled.div`
 const GridItem = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   border: 1px solid gray;
-  height: 15rem;
+  height: 20rem;
   padding: 1rem;
 `;
 const BookImg = styled.img`
-  width: 100%;
-  height: 80%;
+  width: 90%;
+  height: 70%;
 `;
 const CategoryTitle = styled.span`
   font-size: 2rem;
@@ -38,6 +39,7 @@ export default function Home() {
           <GridItem key={bestseller.isbn13}>
             <BookImg src={bestseller.cover} alt="정보 없음" />
             <span>{bestseller.title}</span>
+            <span>{bestseller.author}</span>
           </GridItem>
         ))}
       </Grid>

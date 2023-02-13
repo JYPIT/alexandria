@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import { createGlobalStyle } from 'styled-components';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import MyLibrary from './pages/MyLibrary';
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -80,6 +81,7 @@ root.render(
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
+        <Route path="mylibrary" element={<MyLibrary />} />
       </Route>
       <Route path="/*" element={<NotFound />} />
     </Routes>

@@ -17,6 +17,7 @@ export default function Navbar() {
       <Link to="/">Alexandria</Link>
       <Link to="/login">login</Link>
       <input type="text" placeholder="책 이름 검색..." />
+      <Link to="/mylibrary">My Library</Link>
       <span>All Books</span>
       <span>Talking Room</span>
     </Nav>
