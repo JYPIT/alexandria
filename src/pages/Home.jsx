@@ -42,7 +42,7 @@ export default function Home() {
         ))}
       </Grid>
       <div>
-        <CategoryTitle>New Books</CategoryTitle>
+        <CategoryTitle>New Books:)</CategoryTitle>
       </div>
       <div>
         <CategoryTitle>Editor Recommand</CategoryTitle>
