@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div``;
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -44,7 +43,7 @@ export default function Home() {
         ))}
       </Grid>
       <div>
-        <CategoryTitle>New Books:)</CategoryTitle>
+        <CategoryTitle>New Books</CategoryTitle>
       </div>
       <div>
         <CategoryTitle>Editor Recommand</CategoryTitle>
