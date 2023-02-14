@@ -12,6 +12,7 @@ export default function BookDetail() {
         <span>{title}</span>
         <span>{author}</span>
         <span>{publisher}</span>
+        <span>{isbn13}</span>
         <p>{description}</p>
       </div>
     </div>
