@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import MyLibrary from './pages/MyLibrary';
 import Search from './pages/Search';
+import BookDetail from './pages/BookDetail';
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -81,6 +82,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
+        <Route path="books/:bookId" element={<BookDetail />} />
         <Route path="login" element={<Login />} />
         <Route path="mylibrary" element={<MyLibrary />} />
         <Route path="search/:bookId" element={<Search />} />

@@ -15,6 +15,7 @@ export default function Search() {
 
   return (
     <div>
+      <span>" {searchInput} "에 대한 결과</span>
       {searched &&
         searched.map((book) => (
           <div key={book.isbn}>

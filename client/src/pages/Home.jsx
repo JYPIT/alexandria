@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
 const Grid = styled.div`
@@ -23,9 +24,11 @@ const CategoryTitle = styled.span`
 `;
 
 export default function Home() {
+  const navigate = useNavigate();
+
   const [bestsellers, setbestsellers] = useState([]);
   useEffect(() => {
-    fetch('data/bestSeller.json')
+    fetch('data/blogBest.json')
       .then((res) => res.json())
       .then((data) => setbestsellers(data.item));
   }, []);
@@ -35,7 +38,7 @@ export default function Home() {
       <CategoryTitle>Bestseller</CategoryTitle>
       <Grid>
         {bestsellers.map((bestseller) => (
-          <GridItem key={bestseller.isbn13}>
+          <GridItem key={bestseller.isbn13} onClick={() => navigate(`/books/${bestseller.isbn13}`, { state: { book: bestseller } })}>
             <BookImg src={bestseller.cover} alt="정보 없음" />
             <span>{bestseller.title}</span>
             <span>{bestseller.author}</span>
