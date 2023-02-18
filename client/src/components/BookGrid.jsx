@@ -33,6 +33,7 @@ const BookImg = styled.img`
   -moz-box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.75);
   margin-bottom: 1rem;
 `;
+
 const BookInfo = styled.ul``;
 const BookTitle = styled.li`
   font-size: 1.2rem;

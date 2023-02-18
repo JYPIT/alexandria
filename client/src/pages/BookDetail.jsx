@@ -30,7 +30,6 @@ const CommentSection = styled.div`
   display: flex;
   justify-content: space-between;
   height: 1200px;
-  border: 3px solid red;
 `;
 
 export default function BookDetail() {
