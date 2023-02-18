@@ -1,13 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { getBestseller, getBlogBest, getNew } from '../api/bookAPI';
 import { addBookToLibrary } from '../api/firebase';
 
 export default function useBooks() {
   const queryClient = useQueryClient();
-  const getBooks = useQuery(['books'], async () => {
-    return fetch('data/blogBest.json')
-      .then((res) => res.json())
-      .then((data) => data.item);
-  });
+
+  const bestsellerQuery = useQuery(['bestseller'], getBestseller);
+  const newBookQuery = useQuery(['new'], getNew);
+  const blogbestQuery = useQuery(['blogBest'], getBlogBest);
 
   const addBook = useMutation(
     ({ user, book }) => {
@@ -23,5 +23,5 @@ export default function useBooks() {
     }
   );
 
-  return { getBooks, addBook };
+  return { bestsellerQuery, newBookQuery, blogbestQuery, addBook };
 }
