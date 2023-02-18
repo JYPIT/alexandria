@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 
 export default function Search() {
+  const [searched, setSearched] = useState();
   const location = useLocation();
   const searchInput = location.state.searchInput;
-
-  const [searched, setSearched] = useState();
 
   useEffect(() => {
     fetch('/data/searched.json')
@@ -18,7 +17,7 @@ export default function Search() {
       <span>" {searchInput} "에 대한 결과</span>
       {searched &&
         searched.map((book) => (
-          <div key={book.isbn}>
+          <div key={book.itemId}>
             <img src={book.cover} alt="none" />
             <span>{book.title}</span>
           </div>
