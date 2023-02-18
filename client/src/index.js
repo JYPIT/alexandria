@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import NotFound from './pages/NotFound';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+import NotFound from './pages/NotFound';
 import Home from './pages/Home';
-import Login from './pages/Login';
+import BookDetail from './pages/BookDetail';
 import MyLibrary from './pages/MyLibrary';
 import Search from './pages/Search';
-import BookDetail from './pages/BookDetail';
+import Login from './pages/Login';
+import AdminPage from './pages/AdminPage';
+import ProtectedRoute from './components/ProtectedRoute';
+import Books from './pages/Books';
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -74,20 +77,39 @@ a {
 }
 `;
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        index: true,
+        path: '/',
+        element: <Home />,
+      },
+      { paht: 'books', element: <Books /> },
+      { path: 'books/:bookId', element: <BookDetail /> },
+      { path: 'search/:bookId', element: <Search /> },
+      { path: 'login', element: <Login /> },
+      {
+        path: 'admin',
+        element: (
+          <ProtectedRoute>
+            <AdminPage />
+          </ProtectedRoute>
+        ),
+      },
+      { path: 'mylibrary', element: <MyLibrary /> },
+    ],
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <BrowserRouter>
+  <>
     <GlobalStyle />
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route index element={<Home />} />
-        <Route path="books/:bookId" element={<BookDetail />} />
-        <Route path="login" element={<Login />} />
-        <Route path="mylibrary" element={<MyLibrary />} />
-        <Route path="search/:bookId" element={<Search />} />
-      </Route>
-      <Route path="/*" element={<NotFound />} />
-    </Routes>
-  </BrowserRouter>
+    <RouterProvider router={router} />
+  </>
 );
