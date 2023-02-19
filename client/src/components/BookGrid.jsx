@@ -99,19 +99,15 @@ export default function BookGrid({ books, isLoading }) {
       {!isLoading &&
         books.map((book) => (
           <GridItem key={book.itemId}>
-            <div>
-              <Star onClick={() => clickStar(book)}>
-                {' '}
-                {inLibBooks && inLibBooks.includes(book.itemId) ? (
-                  <StarIcon>
-                    {' '}
-                    <FcBookmark />{' '}
-                  </StarIcon>
-                ) : (
-                  '☆'
-                )}
-              </Star>
-            </div>
+            <Star onClick={() => clickStar(book)}>
+              {inLibBooks && inLibBooks.includes(book.itemId) ? (
+                <StarIcon>
+                  <FcBookmark />
+                </StarIcon>
+              ) : (
+                '☆'
+              )}
+            </Star>
             <div onClick={() => clickBook(book.itemId, book)}>
               <BookImg src={book.cover} alt="정보 없음" />
               <BookInfo>

@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import useLibBooks from '../hooks/useLibBooks';
+
 const Item = styled.div`
   display: flex;
   flex-direction: column;
@@ -25,14 +27,20 @@ const Delete = styled.button`
 `;
 
 export default function LibraryBook({ book }) {
+  const navigate = useNavigate();
   const { removeBookFromLib } = useLibBooks();
   const handleRemove = () => {
     removeBookFromLib.mutate(book);
   };
+
+  const handleClickBook = () => {
+    navigate(`/books/${book.id}`, { state: { book: book } });
+  };
+
   return (
     <Item>
       <Delete onClick={handleRemove}>❌</Delete>
-      <Cover src={book.cover} alt="" />
+      <Cover src={book.cover} alt="" onClick={handleClickBook} />
     </Item>
   );
 }

@@ -8,7 +8,6 @@ const Title = styled.span`
   display: flex;
   justify-content: center;
   font-size: 2rem;
-  margin: 1rem 0;
 `;
 const Grid = styled.div`
   display: grid;
