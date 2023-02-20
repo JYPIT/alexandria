@@ -58,7 +58,7 @@ const Logo = styled.svg`
   fill: transparent;
 
   :hover {
-    fill: gold;
+    fill: yellow;
   }
 `;
 const Search = styled.form`
