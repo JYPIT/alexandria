@@ -60,11 +60,11 @@ export async function getBooksFromLibrary(userId) {
 
 // 데이터 쓰기
 export async function addBookToLibrary(user, book) {
-  set(ref(database, `libraries/${user.uid}/${book.id}`), book);
+  set(ref(database, `libraries/${user.uid}/${book.itemId}`), book);
 }
 
 export async function delBookFromLibrary(userId, book) {
-  return remove(ref(database, `libraries/${userId}/${book.id}`));
+  return remove(ref(database, `libraries/${userId}/${book.itemId}`));
 }
 
 export async function addOrUpdateToLib(userId, book) {

@@ -12,18 +12,24 @@ const InputBox = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 5rem;
+  height: auto;
   margin-bottom: 1rem;
 `;
 
-const TextForm = styled.form`
+const InputText = styled.div`
   width: 100%;
   border-bottom: 1px solid gray;
-  input {
+  textarea {
+    width: 100%;
     height: 3rem;
     font-size: 1rem;
     background-color: transparent;
+    padding: 1rem;
     color: black;
+    /* overflow: hidden; */
+    resize: none;
+    border: none;
+    outline: none;
   }
 `;
 const CommentBox = styled.div`
@@ -46,8 +52,9 @@ const InfoBox = styled.div`
 const UserBox = styled.div`
   height: 2rem;
 `;
-const TextBox = styled.div`
+const CommentList = styled.p`
   height: auto;
+  white-space: pre-line;
 `;
 
 export default function Comment() {
@@ -63,14 +70,18 @@ export default function Comment() {
     setComments([...comments, { id: Date.now(), username: user.displayName, avatar: user.photoURL, text: text, createdAt: Date.now() }]);
     setText('');
   };
+  const handleKeyDown = (e) => {
+    if (e.shiftKey === true && e.key === 'Enter') return console.log('YES');
+    if (e.key === 'Enter' && e.nativeEvent.isComposing === false) handleSubmit(e);
+  };
 
   return (
     <Container>
       <InputBox>
         <Avatar src={user && user.photoURL} alt="" />
-        <TextForm onSubmit={handleSubmit}>
-          <input placeholder="댓글 입력..." value={text} onChange={handleChange} />
-        </TextForm>
+        <InputText>
+          <textarea type="text" placeholder="댓글 입력..." value={text} minLength="1" onChange={handleChange} onKeyDown={handleKeyDown} />
+        </InputText>
       </InputBox>
       {comments &&
         comments.map((comment) => (
@@ -82,7 +93,7 @@ export default function Comment() {
               <UserBox>
                 <span>{comment.username}</span> <span>{timeFormat(comment.createdAt)}</span>
               </UserBox>
-              <TextBox>{comment.text}</TextBox>
+              <CommentList>{comment.text}</CommentList>
             </InfoBox>
           </CommentBox>
         ))}

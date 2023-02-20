@@ -7,12 +7,13 @@ import { createGlobalStyle } from 'styled-components';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import BookDetail from './pages/BookDetail';
-import MyLibrary from './pages/MyLibrary';
 import Search from './pages/Search';
 import Login from './pages/Login';
 import AdminPage from './pages/AdminPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import Books from './pages/Books';
+import TalkingRooms from './pages/TalkingRooms';
+import Library from './pages/Library';
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -89,9 +90,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       { paht: 'books', element: <Books /> },
+      { path: 'login', element: <Login /> },
       { path: 'books/:bookId', element: <BookDetail /> },
       { path: 'search/:bookId', element: <Search /> },
-      { path: 'login', element: <Login /> },
+      { path: 'rooms', element: <TalkingRooms /> },
       {
         path: 'admin',
         element: (
@@ -100,7 +102,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      { path: 'mylibrary', element: <MyLibrary /> },
+      { path: 'library', element: <Library /> },
     ],
   },
 ]);

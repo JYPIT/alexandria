@@ -3,20 +3,24 @@ import LibraryBook from '../components/LibraryBook';
 import { useAuthContext } from '../context/AuthContext';
 import useLibBooks from '../hooks/useLibBooks';
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding-top: 4rem;
+`;
 const Title = styled.span`
   display: flex;
   justify-content: center;
   font-size: 2rem;
-  margin: 1rem 0;
+  margin: 3rem 0;
 `;
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  place-items: center;
   gap: 5px;
+  padding: 0 2rem;
 `;
 
-export default function MyLibrary() {
+export default function Library() {
   const { user } = useAuthContext();
 
   const {
@@ -29,7 +33,7 @@ export default function MyLibrary() {
     <Container>
       <Title>{user.displayName}의 서재</Title>
       {!hasProducts && <p>현재 담겨있는 상품이 존재하지 않습니다.</p>}
-      <Grid>{books && books.map((book) => <LibraryBook key={book.id} book={book} />)}</Grid>
+      <Grid>{books && books.map((book) => <LibraryBook key={book.itemId} book={book} />)}</Grid>
     </Container>
   );
 }

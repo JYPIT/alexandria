@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import BookRecommended from '../components/BookRecommended';
 import Comment from '../components/Comment';
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding-top: 4rem;
+`;
 
 const BookSection = styled.div`
   display: flex;
@@ -35,6 +37,7 @@ const CommentSection = styled.div`
 export default function BookDetail() {
   const location = useLocation();
   const book = location.state.book;
+
   const { cover, title, author, isbn, isbn13, publisher, description } = book;
 
   return (

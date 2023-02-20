@@ -1,40 +1,42 @@
-import useBooks from '../hooks/useBooks';
-import { useAuthContext } from '../context/AuthContext';
-import useLibBooks from '../hooks/useLibBooks';
-import { useNavigate } from 'react-router';
 import styled from 'styled-components';
-import { FcBookmark } from 'react-icons/fc';
+import { useNavigate } from 'react-router';
+import BookMark from './BookMark';
+import { motion } from 'framer-motion';
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 5px;
   place-items: center;
-  padding: 0 1rem 1rem 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid black;
+  padding: 1rem;
+  margin: 0 2rem 2rem 2rem;
+  border-bottom: 1px solid gray;
 `;
-const GridItem = styled.div`
+const GridItem = styled(motion.div)`
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 10rem;
+  justify-content: center;
+  width: 11rem;
   height: 20rem;
-  padding: 1rem;
   overflow: hidden;
+  margin-bottom: 1rem;
   cursor: pointer;
+  :hover {
+    transform: scale(1.1);
+  }
 `;
 const BookImg = styled.img`
-  width: 9rem;
-  height: 12rem;
+  width: 100%;
+  height: 14rem;
   box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.75);
   margin-bottom: 1rem;
 `;
 
-const BookInfo = styled.ul``;
+const BookInfo = styled.ul`
+  width: 11rem;
+`;
 const BookTitle = styled.li`
   font-size: 1.2rem;
   font-weight: 400;
@@ -51,68 +53,23 @@ const BookAuthor = styled.li`
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  margin-bottom: 3px;
-`;
-const Star = styled.button`
-  color: red;
-  font-size: 1rem;
-  position: absolute;
-  height: 3rem;
-  right: 1.3rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 1;
-  cursor: pointer;
-  :hover {
-    transform: scaleY(1.2);
-  }
-`;
-const StarIcon = styled.span`
-  font-size: 1rem;
+  margin-bottom: 5px;
 `;
 
 export default function BookGrid({ books, isLoading }) {
   const navigate = useNavigate();
 
-  const { user } = useAuthContext();
-  const { addBook } = useBooks();
-  const {
-    getBooksFromLib: { data: libBooks },
-  } = useLibBooks();
-  const inLibBooks = libBooks && libBooks.map((book) => book.id);
-
-  const clickBook = (id, book) => {
-    navigate(`/books/${id}`, { state: { book: book } });
+  const clickBook = (book) => {
+    navigate(`/books/${book.itemId}`, { state: { book: book } });
   };
 
-  const clickStar = (book) => {
-    addBook.mutate(
-      { user, book },
-      {
-        onSuccess: () => {
-          console.log('서재에 등록 완료');
-        },
-      }
-    );
-  };
   return (
     <Grid>
       {!isLoading &&
         books.map((book) => (
           <GridItem key={book.itemId}>
-            <div>
-              <Star onClick={() => clickStar(book)}>
-                {' '}
-                {inLibBooks && inLibBooks.includes(book.itemId) ? (
-                  <StarIcon>
-                    {' '}
-                    <FcBookmark />{' '}
-                  </StarIcon>
-                ) : (
-                  '☆'
-                )}
-              </Star>
-            </div>
-            <div onClick={() => clickBook(book.itemId, book)}>
+            <BookMark book={book} />
+            <div onClick={() => clickBook(book)}>
               <BookImg src={book.cover} alt="정보 없음" />
               <BookInfo>
                 <BookTitle>{book.title}</BookTitle>

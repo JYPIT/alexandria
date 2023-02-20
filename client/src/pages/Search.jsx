@@ -1,5 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
+import styled from 'styled-components';
+import BookGrid from '../components/BookGrid';
+
+const Wrapper = styled.div`
+  padding: 5rem 2rem;
+`;
+const SearchResult = styled.span`
+  font-size: 30px;
+  padding-top: 10rem;
+`;
 
 export default function Search() {
   const [searched, setSearched] = useState();
@@ -13,15 +23,9 @@ export default function Search() {
   }, []);
 
   return (
-    <div>
-      <span>" {searchInput} "에 대한 결과</span>
-      {searched &&
-        searched.map((book) => (
-          <div key={book.itemId}>
-            <img src={book.cover} alt="none" />
-            <span>{book.title}</span>
-          </div>
-        ))}
-    </div>
+    <Wrapper>
+      <SearchResult>" {searchInput} "에 대한 결과</SearchResult>
+      {searched && <BookGrid books={searched} />}
+    </Wrapper>
   );
 }
