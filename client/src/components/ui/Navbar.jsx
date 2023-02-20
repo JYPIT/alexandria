@@ -1,25 +1,64 @@
 import { useState } from 'react';
 import { Link, useMatch, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion, useScroll, useMotionValueEvent, useAnimation } from 'framer-motion';
 import { useAuthContext } from '../../context/AuthContext';
 
-const Nav = styled.nav`
+const Nav = styled(motion.nav)`
   position: fixed;
   width: 100%;
   height: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: bisque;
   padding: 0 1.5rem;
+  z-index: 10;
+`;
+
+const Neon = styled.div`
+  position: absolute;
+  left: 3rem;
+  top: 3rem;
+  ::before,
+  ::after {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    filter: blur(50px);
+    z-index: -99;
+    animation: BGneon 2s linear infinite alternate;
+  }
+  @keyframes BGneon {
+    to {
+      filter: blur(30px);
+    }
+    from {
+      filter: blur(50px);
+      width: 100px;
+      height: 100px;
+    }
+  }
+  ::before {
+    top: -40px;
+    left: -40px;
+    background-color: yellow;
+  }
+  ::after {
+    bottom: -40px;
+    right: -40px;
+    background-color: white;
+  }
 `;
 const Logo = styled.svg`
-  width: 5rem;
-  height: 100%;
+  width: 4rem;
   margin-right: 2rem;
   cursor: pointer;
+  fill: transparent;
+
   :hover {
-    fill: red;
+    fill: gold;
   }
 `;
 const Search = styled.form`
@@ -47,7 +86,7 @@ const Item = styled.div`
   margin-right: 2rem;
 `;
 
-const Indicator = styled.span`
+const Indicator = styled(motion.span)`
   position: absolute;
   background-color: red;
   border-bottom: 1px solid red;
@@ -63,16 +102,18 @@ const Avatar = styled.img`
 `;
 const ProfileOverlay = styled.div`
   position: absolute;
-  height: 100%;
   width: 100%;
-  left: 0;
-  bottom: 0;
+  height: 100vh;
+  top: 0;
+  right: 0;
   z-index: 4;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 const Profile = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   top: 4.5rem;
   right: 0.5rem;
   width: 10rem;
@@ -81,20 +122,46 @@ const Profile = styled.div`
   border-radius: 1rem;
   padding: 1rem;
   z-index: 5;
+  button {
+    background-color: gray;
+    border-radius: 1rem;
+    height: 2rem;
+  }
 `;
 const LoginBtn = styled.button`
   background-color: transparent;
   font-size: 1rem;
   cursor: pointer;
 `;
+
+const navVariants = {
+  top: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+  },
+  scroll: {
+    backgroundColor: '#efdeb1',
+  },
+};
+
 export default function Navbar() {
   const { user, login, logout } = useAuthContext();
   const [text, setTetxt] = useState('');
   const [modalClicked, setModalClicked] = useState(false);
+
   const navigate = useNavigate();
   const roomsMatch = useMatch('rooms');
   const adminMatch = useMatch('admin');
   const librayMatch = useMatch('library');
+  const hideAnimation = useAnimation();
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    if (latest < 120) {
+      hideAnimation.start('top');
+    } else {
+      hideAnimation.start('scroll');
+    }
+  });
 
   const handleLogin = () => login();
   const handleLogout = () => {
@@ -113,11 +180,27 @@ export default function Navbar() {
     setModalClicked((prev) => !prev);
   };
   return (
-    <Nav>
+    <Nav variants={navVariants} animate={hideAnimation} initial={'top'}>
       <Col>
         <Link to="/">
-          <Logo whileHover="active" initial="normal" xmlns="http://www.w3.org/2000/svg" width="1024" height="276.742" viewBox="0 0 1024 276.742">
-            <path d="M140.803 258.904c-15.404 2.705-31.079 3.516-47.294 5.676l-49.458-144.856v151.073c-15.404 1.621-29.457 3.783-44.051 5.945v-276.742h41.08l56.212 157.021v-157.021h43.511v258.904zm85.131-157.558c16.757 0 42.431-.811 57.835-.811v43.24c-19.189 0-41.619 0-57.835.811v64.322c25.405-1.621 50.809-3.785 76.482-4.596v41.617l-119.724 9.461v-255.39h119.724v43.241h-76.482v58.105zm237.284-58.104h-44.862v198.908c-14.594 0-29.188 0-43.239.539v-199.447h-44.862v-43.242h132.965l-.002 43.242zm70.266 55.132h59.187v43.24h-59.187v98.104h-42.433v-239.718h120.808v43.241h-78.375v55.133zm148.641 103.507c24.594.539 49.456 2.434 73.51 3.783v42.701c-38.646-2.434-77.293-4.863-116.75-5.676v-242.689h43.24v201.881zm109.994 49.457c13.783.812 28.377 1.623 42.43 3.242v-254.58h-42.43v251.338zm231.881-251.338l-54.863 131.615 54.863 145.127c-16.217-2.162-32.432-5.135-48.648-7.838l-31.078-79.994-31.617 73.51c-15.678-2.705-30.812-3.516-46.484-5.678l55.672-126.75-50.269-129.992h46.482l28.377 72.699 30.27-72.699h47.295z" />
+          <Neon />
+          <Logo
+            fill="#000000"
+            viewBox="0 0 14 14"
+            role="img"
+            focusable="false"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="#000000"
+            strokeWidth="0.154"
+          >
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" stroke="#fcfcfc" strokeWidth="0.252">
+              <path d="M 6.55466,11.542 C 6.10897,11.0187 5.36501,10.459 4.6445,10.1049 3.91698,9.7473 3.22595,9.5487 2.44138,9.4719 2.28669,9.4569 2.15844,9.4429 2.15639,9.4409 c -0.002,0 0.002,-1.6151 0.01,-3.5846 l 0.0132,-3.5808 0.14284,0.014 c 0.87708,0.087 1.85601,0.4184 2.59669,0.8803 0.63833,0.398 1.29749,1.0126 1.71774,1.6015 l 0.10576,0.1482 0,3.4014 c 0,1.8707 -0.008,3.401 -0.0176,3.4007 -0.01,-3e-4 -0.0861,-0.081 -0.16992,-0.1794 z m 0.72656,-3.2297 0,-3.4156 0.20424,-0.2729 C 7.74623,4.2754 8.27075,3.7505 8.61758,3.491 9.54472,2.7971 10.55044,2.405 11.70505,2.287 l 0.14648,-0.015 0,3.5858 0,3.5859 -0.16992,0.016 C 10.0739,9.6093 8.6801,10.2726 7.5899,11.4068 l -0.30868,0.3212 0,-3.4156 z m 0.9961,3.1835 c 0.63101,-0.592 1.46635,-1.0624 2.30546,-1.2985 0.4391,-0.1235 1.01012,-0.2097 1.38918,-0.2097 0.19874,0 0.30898,-0.043 0.37116,-0.1451 0.0468,-0.077 0.0473,-0.1101 0.0474,-3.0157 l 8e-5,-2.9382 0.0879,0.016 c 0.0483,0.01 0.18544,0.048 0.30468,0.086 l 0.2168,0.069 0,3.6669 c 0,2.0168 -0.008,3.6669 -0.0179,3.6669 -0.01,0 -0.15489,-0.031 -0.32227,-0.069 -0.66143,-0.149 -1.20614,-0.2002 -1.92152,-0.1809 -0.86772,0.024 -1.54209,0.145 -2.34375,0.422 l -0.30469,0.1053 0.1875,-0.1759 z m -2.67188,0.057 C 5.27252,11.4336 4.7227,11.2931 4.35153,11.2325 c -0.50468,-0.082 -0.85286,-0.1038 -1.4714,-0.09 -0.61458,0.013 -0.98632,0.056 -1.49344,0.1711 -0.1418,0.032 -0.28682,0.065 -0.32227,0.072 l -0.0644,0.014 1.1e-4,-3.6767 1.2e-4,-3.6768 0.27529,-0.08 c 0.1514,-0.044 0.28847,-0.085 0.30458,-0.09 0.0233,-0.01 0.0293,0.589 0.0293,2.9349 0,3.2057 -0.007,3.027 0.12978,3.1169 0.0476,0.031 0.1465,0.045 0.42893,0.062 1.12246,0.064 2.18752,0.4409 3.05702,1.0822 0.1875,0.1383 0.63749,0.5181 0.66328,0.5598 0.018,0.029 0.006,0.026 -0.28292,-0.078 z"></path>
+            </g>
+            <g id="SVGRepo_iconCarrier">
+              <path d="M 6.55466,11.542 C 6.10897,11.0187 5.36501,10.459 4.6445,10.1049 3.91698,9.7473 3.22595,9.5487 2.44138,9.4719 2.28669,9.4569 2.15844,9.4429 2.15639,9.4409 c -0.002,0 0.002,-1.6151 0.01,-3.5846 l 0.0132,-3.5808 0.14284,0.014 c 0.87708,0.087 1.85601,0.4184 2.59669,0.8803 0.63833,0.398 1.29749,1.0126 1.71774,1.6015 l 0.10576,0.1482 0,3.4014 c 0,1.8707 -0.008,3.401 -0.0176,3.4007 -0.01,-3e-4 -0.0861,-0.081 -0.16992,-0.1794 z m 0.72656,-3.2297 0,-3.4156 0.20424,-0.2729 C 7.74623,4.2754 8.27075,3.7505 8.61758,3.491 9.54472,2.7971 10.55044,2.405 11.70505,2.287 l 0.14648,-0.015 0,3.5858 0,3.5859 -0.16992,0.016 C 10.0739,9.6093 8.6801,10.2726 7.5899,11.4068 l -0.30868,0.3212 0,-3.4156 z m 0.9961,3.1835 c 0.63101,-0.592 1.46635,-1.0624 2.30546,-1.2985 0.4391,-0.1235 1.01012,-0.2097 1.38918,-0.2097 0.19874,0 0.30898,-0.043 0.37116,-0.1451 0.0468,-0.077 0.0473,-0.1101 0.0474,-3.0157 l 8e-5,-2.9382 0.0879,0.016 c 0.0483,0.01 0.18544,0.048 0.30468,0.086 l 0.2168,0.069 0,3.6669 c 0,2.0168 -0.008,3.6669 -0.0179,3.6669 -0.01,0 -0.15489,-0.031 -0.32227,-0.069 -0.66143,-0.149 -1.20614,-0.2002 -1.92152,-0.1809 -0.86772,0.024 -1.54209,0.145 -2.34375,0.422 l -0.30469,0.1053 0.1875,-0.1759 z m -2.67188,0.057 C 5.27252,11.4336 4.7227,11.2931 4.35153,11.2325 c -0.50468,-0.082 -0.85286,-0.1038 -1.4714,-0.09 -0.61458,0.013 -0.98632,0.056 -1.49344,0.1711 -0.1418,0.032 -0.28682,0.065 -0.32227,0.072 l -0.0644,0.014 1.1e-4,-3.6767 1.2e-4,-3.6768 0.27529,-0.08 c 0.1514,-0.044 0.28847,-0.085 0.30458,-0.09 0.0233,-0.01 0.0293,0.589 0.0293,2.9349 0,3.2057 -0.007,3.027 0.12978,3.1169 0.0476,0.031 0.1465,0.045 0.42893,0.062 1.12246,0.064 2.18752,0.4409 3.05702,1.0822 0.1875,0.1383 0.63749,0.5181 0.66328,0.5598 0.018,0.029 0.006,0.026 -0.28292,-0.078 z"></path>
+            </g>
           </Logo>
         </Link>
 
@@ -125,11 +208,11 @@ export default function Navbar() {
           <>
             <Item>
               <Link to="rooms">Talking Rooms </Link>
-              {roomsMatch && <Indicator />}
+              {roomsMatch && <Indicator layoutId="indicator" />}
             </Item>
             <Item>
               {user.isAdmin && <Link to="/admin">Admin </Link>}
-              {adminMatch && <Indicator />}
+              {adminMatch && <Indicator layoutId="indicator" />}
             </Item>
           </>
         )}

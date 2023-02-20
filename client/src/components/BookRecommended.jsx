@@ -26,6 +26,9 @@ const Book = styled.div`
   -moz-box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.75);
   margin-bottom: 2rem;
   cursor: pointer;
+  :hover {
+    transform: scale(1.1);
+  }
 `;
 const Img = styled.img`
   width: 10rem;

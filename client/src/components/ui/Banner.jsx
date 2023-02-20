@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   display: flex;
-  height: 15rem;
+  height: 20rem;
   margin-bottom: 1rem;
 `;
 const CoverImg = styled.img`

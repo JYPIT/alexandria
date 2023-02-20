@@ -7,13 +7,13 @@ import { createGlobalStyle } from 'styled-components';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import BookDetail from './pages/BookDetail';
-import MyLibrary from './pages/MyLibrary';
 import Search from './pages/Search';
 import Login from './pages/Login';
 import AdminPage from './pages/AdminPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import Books from './pages/Books';
 import TalkingRooms from './pages/TalkingRooms';
+import Library from './pages/Library';
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -102,7 +102,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      { path: 'library', element: <MyLibrary /> },
+      { path: 'library', element: <Library /> },
     ],
   },
 ]);
