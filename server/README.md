@@ -1,8 +1,17 @@
-# Alexandria Server
+# Alexandria API
 
-develop test
-develop test2
+Schema
 
-release 0.6
+Users
 
-hotfix test1
+BOOKS
+
+Comments
+
+GET /:BookID/comments
+
+GET /:userId/comment
+
+GET /library
+
+POST /Comments
