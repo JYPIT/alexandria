@@ -19,7 +19,7 @@ export default class CommentService {
           'https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=399&q=80',
         createdAt: 1677000000000,
         id: 1677000000000,
-        text: 'Oh mY GOD',
+        text: 'I love it!!!',
         username: 'Potter',
       },
       {
@@ -27,7 +27,7 @@ export default class CommentService {
           'https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=399&q=80',
         createdAt: 1677052700000,
         id: 1677052700000,
-        text: 'SHUTUP MALPOI',
+        text: 'Abracadabra',
         username: 'Harry',
       },
     ],
