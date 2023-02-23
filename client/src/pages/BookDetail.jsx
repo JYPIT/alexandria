@@ -2,6 +2,7 @@ import { useLocation } from 'react-router';
 import styled from 'styled-components';
 import BookRecommended from '../components/BookRecommended';
 import Comment from '../components/Comment';
+import CommentService from '../service/CommentService';
 
 const Container = styled.div`
   padding-top: 4rem;
@@ -35,10 +36,12 @@ const CommentSection = styled.div`
 `;
 
 export default function BookDetail() {
+  const commentService = new CommentService();
+
   const location = useLocation();
   const book = location.state.book;
 
-  const { cover, title, author, isbn, isbn13, publisher, description } = book;
+  const { itemId, cover, title, author, isbn, isbn13, publisher, description } = book;
 
   return (
     <Container>
@@ -54,7 +57,7 @@ export default function BookDetail() {
         </Info>
       </BookSection>
       <CommentSection>
-        <Comment />
+        <Comment commentService={commentService} bookId={itemId} />
         <BookRecommended />
       </CommentSection>
     </Container>

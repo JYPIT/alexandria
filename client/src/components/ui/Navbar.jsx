@@ -15,51 +15,22 @@ const Nav = styled(motion.nav)`
   z-index: 10;
 `;
 
-const Neon = styled.div`
-  position: absolute;
-  left: 3rem;
-  top: 3rem;
-  ::before,
-  ::after {
-    content: '';
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    filter: blur(50px);
-    z-index: -99;
-    animation: BGneon 2s linear infinite alternate;
-  }
-  @keyframes BGneon {
-    to {
-      filter: blur(30px);
-    }
-    from {
-      filter: blur(50px);
-      width: 100px;
-      height: 100px;
-    }
-  }
-  ::before {
-    top: -40px;
-    left: -40px;
-    background-color: yellow;
-  }
-  ::after {
-    bottom: -40px;
-    right: -40px;
-    background-color: white;
-  }
-`;
 const Logo = styled.svg`
   width: 4rem;
   margin-right: 2rem;
   cursor: pointer;
   fill: transparent;
-
   :hover {
-    fill: yellow;
+    fill: gold;
   }
+`;
+const LogoLight = styled.div`
+  position: absolute;
+  left: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid black;
+  z-index: -1;
 `;
 const Search = styled.form`
   position: absolute;
@@ -183,7 +154,7 @@ export default function Navbar() {
     <Nav variants={navVariants} animate={hideAnimation} initial={'top'}>
       <Col>
         <Link to="/">
-          <Neon />
+          <LogoLight />
           <Logo
             fill="#000000"
             viewBox="0 0 14 14"
