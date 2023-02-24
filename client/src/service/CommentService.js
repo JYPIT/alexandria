@@ -34,6 +34,7 @@ export default class CommentService {
   };
 
   async getComments(bookId) {
+    if (!this.comments[bookId] || this.comments[bookId] === []) return [];
     return this.comments[bookId];
   }
 

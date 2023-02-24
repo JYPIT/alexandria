@@ -7,8 +7,20 @@ import CommentCreateForm from './CommentCreateForm';
 
 const Container = styled.div`
   width: 70%;
-  border: 3px solid orange;
+  height: auto;
+  border-top: 1px solid gray;
   padding: 1rem;
+`;
+
+const Box = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  padding: 1rem 0.5rem;
 `;
 
 const AvatarBox = styled.div``;
@@ -19,15 +31,6 @@ const Avatar = styled.img`
   border-radius: 100%;
 `;
 
-const Box = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-  width: 100%;
-  height: auto;
-`;
-
 const Comment = memo(({ commentService, bookId }) => {
   const { user } = useAuthContext();
   const [comments, setComments] = useState([]);
@@ -36,7 +39,7 @@ const Comment = memo(({ commentService, bookId }) => {
     commentService
       .getComments(bookId)
       .then((comments) => setComments([...comments]))
-      .catch((error) => console.log(error));
+      .catch((error) => console.log('댓글이 없습니다.'));
   }, [commentService, bookId, user]);
 
   const handleCreateComment = (text) => {
