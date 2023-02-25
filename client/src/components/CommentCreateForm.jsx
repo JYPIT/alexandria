@@ -32,7 +32,7 @@ const InputText = styled.div`
     outline: none;
   }
 `;
-export default function CommentCreateForm({ user, bookId, commentService, handleCreateComment }) {
+export default function CommentCreateForm({ user, handleCreateComment }) {
   const [text, setText] = useState('');
   const navigate = useNavigate();
 
@@ -62,7 +62,7 @@ export default function CommentCreateForm({ user, bookId, commentService, handle
     <InputBox>
       <Avatar src={user && user.photoURL} alt="" />
       <InputText onClick={handleGuestClick}>
-        <textarea type="text" placeholder="댓글 입력..." value={text} minLength="1" onChange={handleChange} onKeyDown={handleKeyDown} />
+        <textarea type="text" placeholder="댓글 입력..." value={text} maxLength="130" minLength="1" onChange={handleChange} onKeyDown={handleKeyDown} />
       </InputText>
     </InputBox>
   );

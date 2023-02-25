@@ -4,7 +4,7 @@ import { login, loginObserver, logout } from '../api/firebase';
 const AuthContext = createContext();
 
 export function AuthContextProvider({ children }) {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     loginObserver((user) => {

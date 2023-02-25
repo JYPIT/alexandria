@@ -20,6 +20,13 @@ const database = getDatabase(app);
 // navBar에 넣어서 실행하면 firebase에 의존하게되므로 여기서 직접 실행해준다.
 export function login() {
   signInWithPopup(auth, provider).catch(console.error);
+  // .then((res) => {
+  //   const user = res.user;
+  //   localStorage.setItem(
+  //     'userFromLocalStorage',
+  //     JSON.stringify({ isAdmin: user.isAdmin, uid: user.uid, displayName: user.displayName, photoURL: user.photoURL })
+  //   );
+  // })
 }
 
 export function logout() {

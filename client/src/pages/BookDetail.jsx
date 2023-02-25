@@ -48,7 +48,8 @@ const CommentSection = styled.div`
 `;
 
 export default function BookDetail() {
-  const commentService = new CommentService();
+  const baseURL = process.env.REACT_APP_BASE_URL;
+  const commentService = new CommentService(baseURL);
   const location = useLocation();
   const book = location.state.book;
   const { itemId, cover, title, author, isbn, isbn13, publisher, description } = book;
