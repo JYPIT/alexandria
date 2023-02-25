@@ -15,7 +15,6 @@ const CategoryTitle = styled.span`
   font-size: 2rem;
   font-weight: 400;
 `;
-
 function Home() {
   const {
     bestsellerQuery: { isLoading: bestLoading, data: bestseller },

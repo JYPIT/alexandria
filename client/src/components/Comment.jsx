@@ -6,9 +6,21 @@ import CommentBox from './CommentBox';
 import CommentCreateForm from './CommentCreateForm';
 
 const Container = styled.div`
+  position: relative;
   width: 70%;
-  border: 3px solid orange;
+  height: auto;
+  border-top: 1px solid gray;
   padding: 1rem;
+`;
+
+const Box = styled.div`
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  padding: 1rem 0.5rem;
 `;
 
 const AvatarBox = styled.div``;
@@ -19,15 +31,6 @@ const Avatar = styled.img`
   border-radius: 100%;
 `;
 
-const Box = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-  width: 100%;
-  height: auto;
-`;
-
 const Comment = memo(({ commentService, bookId }) => {
   const { user } = useAuthContext();
   const [comments, setComments] = useState([]);
@@ -35,22 +38,26 @@ const Comment = memo(({ commentService, bookId }) => {
   useEffect(() => {
     commentService
       .getComments(bookId)
-      .then((comments) => setComments([...comments]))
-      .catch((error) => console.log(error));
+      .then((comments) => setComments(comments))
+      .catch((error) => console.log('댓글이 없습니다.'));
   }, [commentService, bookId, user]);
 
   const handleCreateComment = (text) => {
-    commentService.postComment(user, text, bookId).then((comment) => {
+    commentService.postComment(bookId, user, text).then((comment) => {
       setComments((comments) => [comment, ...comments]);
     });
   };
+
+  const handleUpdateComment = (commentId, text) => {
+    commentService.updateComment(bookId, commentId, text).then((updated) => {
+      setComments((comments) => comments.map((comment) => (comment.id === updated.id ? updated : comment)));
+    });
+  };
+
   const handleDeleteComment = (commentId) => {
     commentService.deleteComment(bookId, commentId).then(() => setComments((comments) => comments.filter((comment) => comment.id !== commentId)));
   };
 
-  const handleUpdateComment = (commentId, text) => {
-    commentService.UpdateComment(bookId, commentId, text);
-  };
   return (
     <Container>
       <CommentCreateForm user={user} bookId={bookId} commentService={commentService} handleCreateComment={handleCreateComment} />
@@ -61,7 +68,7 @@ const Comment = memo(({ commentService, bookId }) => {
               <Avatar src={comment.avatar} alt="" />
             </AvatarBox>
             <CommentBox
-              commentService={commentService}
+              user={user}
               bookId={bookId}
               comment={comment}
               setComments={setComments}

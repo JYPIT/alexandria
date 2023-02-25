@@ -26,6 +26,7 @@ const Logo = styled.svg`
 `;
 const LogoLight = styled.div`
   position: absolute;
+  top: 0;
   left: 1.5rem;
   width: 4rem;
   height: 4rem;
@@ -110,7 +111,7 @@ const navVariants = {
     backgroundColor: 'rgba(0, 0, 0, 0)',
   },
   scroll: {
-    backgroundColor: '#efdeb1',
+    backgroundColor: '#ece6cc',
   },
 };
 

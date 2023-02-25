@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
 const InputBox = styled.div`
@@ -6,7 +7,7 @@ const InputBox = styled.div`
   align-items: center;
   width: 100%;
   height: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
 const Avatar = styled.img`
@@ -21,7 +22,7 @@ const InputText = styled.div`
   textarea {
     width: 100%;
     height: 3rem;
-    font-size: 1rem;
+    font-size: 18px;
     background-color: transparent;
     padding: 1rem;
     color: black;
@@ -31,10 +32,21 @@ const InputText = styled.div`
     outline: none;
   }
 `;
-export default function CommentCreateForm({ user, bookId, commentService, handleCreateComment }) {
+export default function CommentCreateForm({ user, handleCreateComment }) {
   const [text, setText] = useState('');
+  const navigate = useNavigate();
 
+  const handleGuestClick = () => {
+    if (!user) {
+      alert('로그인이 필요합니다.');
+      navigate('/');
+    }
+  };
   const handleKeyDown = (e) => {
+    if (!user) {
+      alert('로그인이 필요합니다.');
+      navigate('/');
+    }
     if (e.shiftKey === true && e.key === 'Enter') return;
     if (e.key === 'Enter' && e.nativeEvent.isComposing === false) handleSubmit(e);
   };
@@ -49,8 +61,8 @@ export default function CommentCreateForm({ user, bookId, commentService, handle
   return (
     <InputBox>
       <Avatar src={user && user.photoURL} alt="" />
-      <InputText>
-        <textarea type="text" placeholder="댓글 입력..." value={text} minLength="1" onChange={handleChange} onKeyDown={handleKeyDown} />
+      <InputText onClick={handleGuestClick}>
+        <textarea type="text" placeholder="댓글 입력..." value={text} maxLength="130" minLength="1" onChange={handleChange} onKeyDown={handleKeyDown} />
       </InputText>
     </InputBox>
   );
