@@ -47,7 +47,6 @@ const CommentBox = memo(({ user, comment, handleDeleteComment, handleUpdateComme
   const [clickedModal, setClickedModal] = useState(false);
   const [editing, setEditing] = useState(false);
   const isUserComment = user && user.uid === comment.userId;
-
   const handleBtnModalClick = () => {
     setClickedModal(false);
   };
