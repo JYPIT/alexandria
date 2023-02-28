@@ -1,8 +1,7 @@
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
 import BookRecommended from '../components/BookRecommended';
-import Comment from '../components/Comment';
-import CommentService from '../service/CommentService';
+import Comment from '../components/comment/Comment';
 
 const Container = styled.div`
   padding-top: 4rem;
@@ -47,9 +46,7 @@ const CommentSection = styled.div`
   height: 1200px;
 `;
 
-export default function BookDetail() {
-  const baseURL = process.env.REACT_APP_BASE_URL;
-  const commentService = new CommentService(baseURL);
+export default function BookDetail({ commentService, recommendService }) {
   const location = useLocation();
   const book = location.state.book;
   const { itemId, cover, title, author, isbn, isbn13, publisher, description } = book;
@@ -70,7 +67,7 @@ export default function BookDetail() {
       </BookSection>
       <CommentSection>
         <Comment commentService={commentService} bookId={itemId} />
-        <BookRecommended />
+        <BookRecommended recommendService={recommendService} book={book} />
       </CommentSection>
     </Container>
   );

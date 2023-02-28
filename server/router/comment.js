@@ -7,7 +7,7 @@ let comments = {
       userId: 1,
       username: '홍길동',
       avatar: 'https://lh3.googleusercontent.com/a/AEdFTp71f_kRnQvKxnbvJIkpaXnqWJlwihABStdMIMh7Lw=s96-c',
-      text: 'BYE',
+      text: '재미와 감동까지 !!',
       createdAt: 1677052706583,
     },
   ],
@@ -27,7 +27,7 @@ let comments = {
       username: 'Merry',
       avatar:
         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
-      text: '사랑하는 책입니다!!!',
+      text: '동감합니다...',
       createdAt: 1677052700000,
     },
   ],
@@ -36,26 +36,29 @@ let comments = {
 const router = express.Router();
 
 //TODO: bookid가 알맞은 형식인지 확인 필요 -> REGEX
-router.get('/books/:bookId', (req, res, next) => {
-  const bookId = req.params.bookId;
+router.get('/:id', (req, res, next) => {
+  const bookId = req.params.id;
   const data = bookId ? comments[bookId] : comments;
   res.status(200).json(data);
 });
 
-router.post('/books/:bookId', (req, res, next) => {
-  const bookId = req.params.bookId;
+router.post('/:id', (req, res, next) => {
+  const bookId = req.params.id;
   const comment = req.body;
 
   if (comment) {
-    comments[bookId] = [comment, ...comments[bookId]];
+    comments[bookId] //
+      ? (comments[bookId] = [comment, ...comments[bookId]])
+      : (comments[bookId] = [comment]);
     res.status(201).json(comment);
   } else {
     res.status(404).json({ message: 'Comment Not Found' });
   }
+  console.log(comments);
 });
 
-router.put('/books/:bookId', (req, res, next) => {
-  const bookId = req.params.bookId;
+router.put('/:id', (req, res, next) => {
+  const bookId = req.params.id;
   const commentId = req.body.commentId;
   const text = req.body.text;
   const comment = comments[bookId].find((comment) => comment.id === commentId);
@@ -67,11 +70,12 @@ router.put('/books/:bookId', (req, res, next) => {
   }
 });
 
-router.delete('/books/:bookId', (req, res, next) => {
-  const bookId = req.params.bookId;
+router.delete('/:id', (req, res, next) => {
+  const bookId = req.params.id;
   const commentId = req.body.commentId;
-  comments[bookId] = comments[bookId].filter((comment) => comment.id !== commentId);
+
   if (commentId) {
+    comments[bookId] = comments[bookId].filter((comment) => comment.id !== commentId);
     res.sendStatus(204);
   } else {
     res.status(404).json({ message: 'Comment Not Found' });

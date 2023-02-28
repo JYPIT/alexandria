@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { ImBookmark } from 'react-icons/im';
 import useLibBooks from '../hooks/useLibBooks';
-import { useAuthContext } from '../context/AuthContext';
 
 const Wrapper = styled.div`
   font-size: 1rem;
@@ -13,12 +12,14 @@ const Wrapper = styled.div`
   opacity: 1;
   cursor: pointer;
   :hover {
-    transform: scaleY(1.2);
+    transform: scaleY(1);
+  }
+  svg :hover {
+    fill: red;
   }
 `;
 
 export default function BookMark({ book }) {
-  const { user } = useAuthContext();
   const {
     getBooksFromLib: { data: libBooks },
     addBookToLib,
@@ -28,10 +29,10 @@ export default function BookMark({ book }) {
 
   const clickBookMark = (book) => {
     if (inLibBooks && inLibBooks.includes(book.itemId)) {
-      removeBookFromLib.mutate(book);
+      removeBookFromLib.mutate(book.itemId);
     }
     if (inLibBooks && !inLibBooks.includes(book.itemId)) {
-      addBookToLib.mutate({ user, book });
+      addBookToLib.mutate(book);
     }
   };
   return (

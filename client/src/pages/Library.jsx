@@ -5,6 +5,7 @@ import useLibBooks from '../hooks/useLibBooks';
 
 const Container = styled.div`
   padding-top: 4rem;
+  text-align: center;
 `;
 const Title = styled.span`
   display: flex;
@@ -28,10 +29,9 @@ export default function Library() {
   } = useLibBooks();
 
   const hasProducts = books && books.length > 0;
-  if (isLoading) return <p>Loading...</p>;
   return (
     <Container>
-      <Title>{user.displayName}의 서재</Title>
+      {!isLoading ? <Title>{user.displayName}의 서재</Title> : <Title>잠시 기다려주세요...</Title>}
       {!hasProducts && <p>현재 담겨있는 상품이 존재하지 않습니다.</p>}
       <Grid>{books && books.map((book) => <LibraryBook key={book.itemId} book={book} />)}</Grid>
     </Container>

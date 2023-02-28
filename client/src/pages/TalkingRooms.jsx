@@ -4,5 +4,5 @@ const Container = styled.div`
   padding-top: 4rem;
 `;
 export default function TalkingRooms() {
-  return <Container>Talking Rooms</Container>;
+  return <Container></Container>;
 }
