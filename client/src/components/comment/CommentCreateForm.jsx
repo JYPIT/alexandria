@@ -1,12 +1,11 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
 const InputBox = styled.div`
   display: flex;
-  align-items: center;
   width: 100%;
-  height: auto;
+  /* height: auto; */
   margin-bottom: 2rem;
 `;
 
@@ -18,7 +17,6 @@ const Avatar = styled.img`
 `;
 const InputText = styled.div`
   width: 100%;
-  border-bottom: 1px solid gray;
   textarea {
     width: 100%;
     height: 3rem;
@@ -26,15 +24,17 @@ const InputText = styled.div`
     background-color: transparent;
     padding: 1rem;
     color: black;
-    /* overflow: hidden; */
+    overflow: hidden;
     resize: none;
     border: none;
     outline: none;
+    border-bottom: 1px solid gray;
   }
 `;
 export default function CommentCreateForm({ user, handleCreateComment }) {
-  const [text, setText] = useState('');
   const navigate = useNavigate();
+  const [text, setText] = useState('');
+  const textRef = useRef();
 
   const handleGuestClick = () => {
     if (!user) {
@@ -51,18 +51,31 @@ export default function CommentCreateForm({ user, handleCreateComment }) {
     if (e.key === 'Enter' && e.nativeEvent.isComposing === false) handleSubmit(e);
   };
   const handleChange = (e) => {
+    textRef.current.style.height = textRef.current.scrollHeight + 'px';
     setText(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     handleCreateComment(text);
     setText('');
+    textRef.current.style.height = 'auto';
   };
+
   return (
     <InputBox>
       <Avatar src={user && user.photoURL} alt="" />
       <InputText onClick={handleGuestClick}>
-        <textarea type="text" placeholder="댓글 입력..." value={text} maxLength="130" minLength="1" onChange={handleChange} onKeyDown={handleKeyDown} />
+        <textarea
+          ref={textRef}
+          rows="1"
+          type="text"
+          value={text}
+          placeholder="댓글 입력..."
+          maxLength="130"
+          minLength="1"
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+        />
       </InputText>
     </InputBox>
   );

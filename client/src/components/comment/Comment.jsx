@@ -1,7 +1,6 @@
-import { memo, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useAuthContext } from '../context/AuthContext';
-
+import { useAuthContext } from '../../context/AuthContext';
 import CommentBox from './CommentBox';
 import CommentCreateForm from './CommentCreateForm';
 
@@ -31,7 +30,7 @@ const Avatar = styled.img`
   border-radius: 100%;
 `;
 
-const Comment = memo(({ commentService, bookId }) => {
+const Comment = ({ commentService, bookId }) => {
   const { user } = useAuthContext();
   const [comments, setComments] = useState([]);
 
@@ -39,7 +38,7 @@ const Comment = memo(({ commentService, bookId }) => {
     commentService
       .getComments(bookId)
       .then((comments) => setComments(comments))
-      .catch((error) => console.log('댓글이 없습니다.'));
+      .catch((error) => console.error);
   }, [commentService, bookId, user]);
 
   const handleCreateComment = (text) => {
@@ -67,17 +66,10 @@ const Comment = memo(({ commentService, bookId }) => {
             <AvatarBox>
               <Avatar src={comment.avatar} alt="" />
             </AvatarBox>
-            <CommentBox
-              user={user}
-              bookId={bookId}
-              comment={comment}
-              setComments={setComments}
-              handleDeleteComment={handleDeleteComment}
-              handleUpdateComment={handleUpdateComment}
-            />
+            <CommentBox user={user} comment={comment} handleDeleteComment={handleDeleteComment} handleUpdateComment={handleUpdateComment} />
           </Box>
         ))}
     </Container>
   );
-});
+};
 export default Comment;

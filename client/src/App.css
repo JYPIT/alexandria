@@ -36,7 +36,9 @@
     transform: rotate(360deg);
   }
 }
-
+#root {
+  background-color: whitesmoke;
+}
 button,
 input {
   border: none;

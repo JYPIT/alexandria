@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
 import BookGrid from '../components/BookGrid';
@@ -8,24 +8,27 @@ const Wrapper = styled.div`
 `;
 const SearchResult = styled.span`
   font-size: 30px;
-  padding-top: 10rem;
 `;
 
-export default function Search() {
+const Search = memo(({ searchService }) => {
   const [searched, setSearched] = useState();
   const location = useLocation();
-  const searchInput = location.state.searchInput;
+  const params = new URLSearchParams(location.search);
+  const keyword = params.get('search_query');
 
   useEffect(() => {
-    fetch('/data/searched.json')
-      .then((res) => res.json())
-      .then((data) => setSearched(data.item));
-  }, []);
+    searchService.getSearchedList(keyword).then((data) => setSearched(data));
+  }, [searchService, keyword]);
 
   return (
     <Wrapper>
-      <SearchResult>" {searchInput} "에 대한 결과</SearchResult>
+      {searched && searched.length > 0 ? (
+        <SearchResult>" {keyword} "에 대한 결과</SearchResult>
+      ) : (
+        <SearchResult>" {keyword} "에 대한 결과가 존재하지 않습니다.</SearchResult>
+      )}
       {searched && <BookGrid books={searched} />}
     </Wrapper>
   );
-}
+});
+export default memo(Search);
