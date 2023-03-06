@@ -1,23 +1,15 @@
 export default class RecommendService {
-  constructor(baseURL) {
-    this.baseURL = baseURL;
+  constructor(http) {
+    this.http = http;
   }
 
   async getRelativeTitle(book) {
     const keyword = book.title.split(' ')[0];
-    const response = await fetch(`${this.baseURL}/books/${book.itemId}/relatives?keyword=${keyword}`);
-
-    const data = await response.json();
-
-    return data;
+    return await this.http.fetch(`/books/${book.itemId}/relatives?keyword=${keyword}`);
   }
 
   async getRelativeAuthor(book) {
     const keyword = book.author.split(' ')[0];
-    const response = await fetch(`${this.baseURL}/books/${book.itemId}/relatives?keyword=${keyword}`);
-
-    const data = await response.json();
-
-    return data;
+    return await this.http.fetch(`/books/${book.itemId}/relatives?keyword=${keyword}`);
   }
 }

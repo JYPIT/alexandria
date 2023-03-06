@@ -9,14 +9,13 @@ const LogoSvg = styled.svg`
   box-shadow: 0px 0px 39px 16px transparent;
   -webkit-box-shadow: 0px 0px 39px 16px transparent;
   -moz-box-shadow: 0px 0px 39px 16px transparent;
-  transition: box-shadow, background-color, fill 0.7s ease-in-out;
+  transition: all 0.3s ease-in-out;
   :hover {
-    fill: #ebe4ab;
+    fill: #eeeacb;
     background-color: rgba(255, 255, 0, 0.35);
     box-shadow: 0px -7px 39px 6px rgba(255, 255, 0, 0.75);
     -webkit-box-shadow: 0px -7px 39px 6px rgba(255, 255, 0, 0.75);
     -moz-box-shadow: 0px -7px 39px 6px rgba(255, 255, 0, 0.75);
-    transition: fill, background-color, box-shadow 0.7 ease-in-out;
   }
 `;
 

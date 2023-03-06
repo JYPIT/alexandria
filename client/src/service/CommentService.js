@@ -1,56 +1,38 @@
 export default class CommentService {
-  constructor(baseURL) {
-    this.baseURL = baseURL;
+  constructor(http) {
+    this.http = http;
   }
 
   async getComments(bookId) {
-    const response = await fetch(`${this.baseURL}/books/${bookId}`, {
+    return await this.http.fetch(`/books/${bookId}`, {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
     });
-    const data = await response.json();
-    if (response.status !== 200) {
-      throw new Error(data.message);
-    }
-    return data;
   }
 
   async postComment(bookId, user, text) {
-    const response = await fetch(`${this.baseURL}/books/${bookId}`, {
+    return await this.http.fetch(`/books/${bookId}`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: Date.now(), userId: user.uid, username: user.displayName, avatar: user.photoURL, text: text, createdAt: Date.now() }),
+      body: JSON.stringify({
+        userId: user.uid,
+        username: user.displayName,
+        avatar: user.photoURL,
+        text: text,
+      }),
     });
-    const data = await response.json();
-    if (response.status !== 201) {
-      throw new Error(data.message);
-    }
-    return data;
   }
 
   async updateComment(bookId, commentId, text) {
-    const response = await fetch(`${this.baseURL}/books/${bookId}`, {
+    return this.http.fetch(`/books/${bookId}`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ commentId, text }),
     });
-
-    const data = await response.json();
-    if (response.status !== 200) {
-      throw new Error(data.message);
-    }
-    return data;
   }
-
+  //FIXME: Unexpected end of JSON input at HttpClient.fetch 수정
   async deleteComment(bookId, commentId) {
-    const response = await fetch(`${this.baseURL}/books/${bookId}`, {
+    return this.http.fetch(`/books/${bookId}`, {
       method: 'DELETE',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({ commentId }),
+      body: JSON.stringify({ commentId: commentId }),
     });
-    if (response.status !== 204) {
-      console.log('NOT EXIST');
-    }
   }
 
   //Server 구성 전

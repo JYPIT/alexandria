@@ -63,7 +63,11 @@ export default function CommentCreateForm({ user, handleCreateComment }) {
 
   return (
     <InputBox>
-      <Avatar src={user && user.photoURL} alt="" />
+      <Avatar //
+        src={user && user.photoURL}
+        alt=""
+        referrerPolicy="no-referrer"
+      />
       <InputText onClick={handleGuestClick}>
         <textarea
           ref={textRef}

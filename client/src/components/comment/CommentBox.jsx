@@ -44,6 +44,7 @@ const CommentList = styled.p`
 
 const CommentBox = memo(({ user, comment, handleDeleteComment, handleUpdateComment }) => {
   const { id: commentId, username, text, createdAt } = comment;
+
   const [clickedModal, setClickedModal] = useState(false);
   const [editing, setEditing] = useState(false);
   const isUserComment = user && user.uid === comment.userId;
@@ -57,7 +58,7 @@ const CommentBox = memo(({ user, comment, handleDeleteComment, handleUpdateComme
       <CommentInfoBox>
         <Info>
           <Username>{username}</Username>
-          <CreatedAt>{timeFormat(createdAt)}</CreatedAt>
+          <CreatedAt>{timeFormat(Number(new Date(createdAt)))}</CreatedAt>
         </Info>
         {isUserComment && (
           <CommentModalBtn

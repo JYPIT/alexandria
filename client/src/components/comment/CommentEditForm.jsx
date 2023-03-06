@@ -49,7 +49,7 @@ export default function CommentEditForm({ commentId, prevText, setEditing, setCl
         value={text}
         maxLength="130"
         minLength="1"
-        // autoFocus={true}
+        autoFocus={true}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
