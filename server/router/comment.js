@@ -6,7 +6,6 @@ const router = express.Router();
 //TODO: bookid가 알맞은 형식인지 확인 필요 -> REGEX
 router.get('/:id', async (req, res, next) => {
   const bookId = req.params.id;
-  //   const data = bookId ? comments[bookId] : comments;
   const data = await getAll(bookId);
 
   if (data) {
