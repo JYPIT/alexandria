@@ -16,11 +16,16 @@ import Library from './pages/Library';
 import CommentService from './service/CommentService';
 import SearchService from './service/SearchService';
 import RecommendService from './service/RecommendService';
+import HttpClient from './network/http';
+import LibraryService from './service/LibraryService';
+import TalkingRoom from './pages/TalkingRoom';
 
 const baseURL = process.env.REACT_APP_BASE_URL;
-const commentService = new CommentService(baseURL);
-const searchService = new SearchService(baseURL);
-const recommendService = new RecommendService(baseURL);
+const httpClient = new HttpClient(baseURL);
+const commentService = new CommentService(httpClient);
+const searchService = new SearchService(httpClient);
+const recommendService = new RecommendService(httpClient);
+export const libraryService = new LibraryService(httpClient);
 
 const router = createBrowserRouter([
   {
@@ -53,6 +58,7 @@ const router = createBrowserRouter([
         ),
       },
       { path: 'rooms', element: <TalkingRooms /> },
+      { path: 'rooms/:roomName', element: <TalkingRoom /> },
       {
         path: 'admin',
         element: (

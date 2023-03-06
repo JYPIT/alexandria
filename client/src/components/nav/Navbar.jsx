@@ -8,13 +8,15 @@ import Logo from './Logo';
 
 const Nav = styled(motion.nav)`
   position: fixed;
-  width: 100%;
-  height: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  height: 4rem;
+  margin: 0 auto;
   padding: 0 1.5rem;
   z-index: 10;
+  overflow: hidden;
 `;
 
 const Col = styled.div`

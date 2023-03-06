@@ -1,17 +1,11 @@
 # Alexandria API
 
-Schema
+/search
+/libraries/:userId
+/books/:bookId/comments
+/books/:bookId/relatives
 
-Users
-
-BOOKS
-
-Comments
-
-GET /:BookID/comments
-
-GET /:userId/comment
-
-GET /library
-
-POST /Comments
+[DB Schema]
+--- Users
+--- Libraries
+--- Comments

@@ -38,7 +38,10 @@
 }
 #root {
   background-color: whitesmoke;
+  min-width: 1280px;
+  /* max-width: 1980px; */
 }
+
 button,
 input {
   border: none;

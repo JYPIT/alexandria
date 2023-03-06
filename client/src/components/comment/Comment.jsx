@@ -38,23 +38,26 @@ const Comment = ({ commentService, bookId }) => {
     commentService
       .getComments(bookId)
       .then((comments) => setComments(comments))
-      .catch((error) => console.error);
+      .catch((error) => console.log(error));
   }, [commentService, bookId, user]);
 
   const handleCreateComment = (text) => {
     commentService.postComment(bookId, user, text).then((comment) => {
-      setComments((comments) => [comment, ...comments]);
+      setComments((comments) => [...comment, ...comments]);
     });
   };
 
   const handleUpdateComment = (commentId, text) => {
     commentService.updateComment(bookId, commentId, text).then((updated) => {
-      setComments((comments) => comments.map((comment) => (comment.id === updated.id ? updated : comment)));
+      setComments((comments) => comments.map((comment) => (comment.id === updated[0].id ? updated[0] : comment)));
     });
   };
 
   const handleDeleteComment = (commentId) => {
-    commentService.deleteComment(bookId, commentId).then(() => setComments((comments) => comments.filter((comment) => comment.id !== commentId)));
+    commentService
+      .deleteComment(bookId, commentId)
+      .then((res) => setComments((comments) => comments.filter((comment) => comment.id !== commentId)))
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -64,7 +67,7 @@ const Comment = ({ commentService, bookId }) => {
         comments.map((comment) => (
           <Box key={comment.id}>
             <AvatarBox>
-              <Avatar src={comment.avatar} alt="" />
+              <Avatar src={comment.avatar} alt="" referrerPolicy="no-referrer" />
             </AvatarBox>
             <CommentBox user={user} comment={comment} handleDeleteComment={handleDeleteComment} handleUpdateComment={handleUpdateComment} />
           </Box>

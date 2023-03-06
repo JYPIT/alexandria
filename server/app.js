@@ -4,11 +4,12 @@ import 'express-async-errors';
 import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import bookRouter from './router/book.js';
 import searchRouter from './router/search.js';
 import libraryRouter from './router/library.js';
 import commentRouter from './router/comment.js';
 import relativeRouter from './router/relativeBook.js';
+import { initSocket } from './connection/socket.js';
+import { db } from './db/database.js';
 
 dotenv.config();
 const PORT = process.env.REACT_APP_PORT;
@@ -25,7 +26,6 @@ app.use(cors(corsOption));
 app.use(morgan('tiny'));
 app.use(helmet());
 
-// app.use('/', bookRouter);
 app.use('/books', commentRouter);
 app.use('/search', searchRouter);
 app.use('/libraries', libraryRouter);
@@ -42,4 +42,7 @@ app.use((error, req, res, next) => {
 const handleListening = () => {
   console.log(`✅ Listening to http://localhost:${PORT} 🚀`);
 };
-app.listen(PORT, handleListening);
+
+const server = app.listen(PORT, handleListening);
+
+initSocket(server);

@@ -1,9 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { libraryService } from '../index.js';
 import { useAuthContext } from '../context/AuthContext';
-import LibraryService from '../service/LibraryService';
-
-const baseURL = process.env.REACT_APP_BASE_URL;
-const libraryService = new LibraryService(baseURL);
 
 export default function useLibBooks() {
   const { uid } = useAuthContext();
