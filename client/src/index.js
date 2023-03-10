@@ -19,6 +19,7 @@ import RecommendService from './service/RecommendService';
 import HttpClient from './network/http';
 import LibraryService from './service/LibraryService';
 import TalkingRoom from './pages/TalkingRoom';
+import AdminService from './service/AdminService';
 
 const baseURL = process.env.REACT_APP_BASE_URL;
 const httpClient = new HttpClient(baseURL);
@@ -26,6 +27,7 @@ const commentService = new CommentService(httpClient);
 const searchService = new SearchService(httpClient);
 const recommendService = new RecommendService(httpClient);
 export const libraryService = new LibraryService(httpClient);
+export const adminService = new AdminService(httpClient);
 
 const router = createBrowserRouter([
   {
@@ -36,7 +38,7 @@ const router = createBrowserRouter([
       {
         index: true,
         path: '/',
-        element: <Home />,
+        element: <Home adminService={adminService} />,
       },
       { paht: 'books', element: <Books /> },
       { path: 'login', element: <Login /> },
@@ -63,7 +65,7 @@ const router = createBrowserRouter([
         path: 'admin',
         element: (
           <ProtectedRoute>
-            <AdminPage />
+            <AdminPage adminService={adminService} />
           </ProtectedRoute>
         ),
       },

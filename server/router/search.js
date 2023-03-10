@@ -1,9 +1,8 @@
 import express, { response } from 'express';
 import dotenv from 'dotenv';
+dotenv.config();
 
 const router = express.Router();
-
-dotenv.config();
 
 const BASE_URL = process.env.REACT_APP_ALADIN_BASE_URL;
 const API_KEY = process.env.REACT_APP_ALADIN_API_KEY;

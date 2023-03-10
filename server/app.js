@@ -4,12 +4,15 @@ import 'express-async-errors';
 import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
+
+import booksRouter from './router/books.js';
 import searchRouter from './router/search.js';
 import libraryRouter from './router/library.js';
 import commentRouter from './router/comment.js';
 import relativeRouter from './router/relativeBook.js';
+import adminRouter from './router/admin.js';
+
 import { initSocket } from './connection/socket.js';
-import { db } from './db/database.js';
 
 dotenv.config();
 const PORT = process.env.REACT_APP_PORT;
@@ -17,23 +20,32 @@ const PORT = process.env.REACT_APP_PORT;
 const app = express();
 
 const corsOption = {
-  oigin: ['http://localhost:3000'],
+  origin: ['http://localhost:3000'],
 };
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOption));
 app.use(morgan('tiny'));
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: false,
+  })
+);
 
+app.use('/assets', express.static('assets'));
+
+app.use('/books', booksRouter);
 app.use('/books', commentRouter);
+app.use('/books', relativeRouter);
 app.use('/search', searchRouter);
 app.use('/libraries', libraryRouter);
-app.use('/books', relativeRouter);
+app.use('/admin', adminRouter);
 
 app.use((req, res, next) => {
   res.sendStatus(404);
 });
+
 app.use((error, req, res, next) => {
   console.error(error);
   res.sendStatus(500);

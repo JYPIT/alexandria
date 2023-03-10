@@ -16,7 +16,7 @@ const CategoryTitle = styled.span`
   font-weight: 400;
 `;
 
-function Home() {
+function Home({ adminService }) {
   const {
     bestsellerQuery: { isLoading: bestLoading, data: bestseller },
     newBookQuery: { isLoading: newLoading, data: newBooks },
@@ -25,7 +25,7 @@ function Home() {
 
   return (
     <Container>
-      <Banner />
+      <Banner adminService={adminService} />
       <CategoryTitle>베스트셀러</CategoryTitle>
       <BookGrid books={bestseller} isLoading={bestLoading} />
 
