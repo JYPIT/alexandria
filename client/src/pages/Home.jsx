@@ -10,13 +10,14 @@ const Container = styled.div`
   flex-direction: column;
   padding-top: 4rem;
 `;
+
 const CategoryTitle = styled.span`
   margin-left: 2rem;
   font-size: 2rem;
   font-weight: 400;
 `;
 
-function Home() {
+function Home({ adminService }) {
   const {
     bestsellerQuery: { isLoading: bestLoading, data: bestseller },
     newBookQuery: { isLoading: newLoading, data: newBooks },
@@ -25,7 +26,7 @@ function Home() {
 
   return (
     <Container>
-      <Banner />
+      <Banner adminService={adminService} />
       <CategoryTitle>베스트셀러</CategoryTitle>
       <BookGrid books={bestseller} isLoading={bestLoading} />
 

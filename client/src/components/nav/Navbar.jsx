@@ -33,43 +33,48 @@ const Item = styled.div`
 
 const Indicator = styled(motion.span)`
   position: absolute;
-  background-color: red;
   border-bottom: 1px solid red;
   width: 4rem;
   bottom: 0;
 `;
 
 const Avatar = styled.img`
-  height: 60%;
+  height: 2.5rem;
   border-radius: 100%;
   background-color: bisque;
+  cursor: pointer;
 `;
 const ProfileOverlay = styled.div`
-  position: absolute;
-  width: 100%;
+  position: fixed;
+  display: flex;
+  width: 100vh;
   height: 100vh;
   top: 0;
   right: 0;
   z-index: 4;
-  background-color: rgba(0, 0, 0, 0.5);
 `;
-const Profile = styled.div`
-  position: absolute;
+const ProfileModal = styled.div`
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  top: 4.5rem;
+  top: 4rem;
   right: 0.5rem;
   width: 10rem;
   height: 10rem;
-  background-color: white;
+  background-color: gray;
   border-radius: 1rem;
   padding: 1rem;
   z-index: 5;
+  span {
+    color: white;
+    font-weight: 400;
+  }
   button {
-    background-color: gray;
+    background-color: lightgray;
     border-radius: 1rem;
     height: 2rem;
+    cursor: pointer;
   }
 `;
 const LoginBtn = styled.button`
@@ -151,10 +156,10 @@ export default function Navbar() {
             {modalClicked && (
               <>
                 <ProfileOverlay onClick={() => setModalClicked(false)} />
-                <Profile>
+                <ProfileModal>
                   <span>{user.displayName}</span>
                   <button onClick={handleLogout}>Logout</button>
-                </Profile>
+                </ProfileModal>
               </>
             )}
           </>

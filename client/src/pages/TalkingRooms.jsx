@@ -17,6 +17,34 @@ const Header = styled.div`
     border-radius: 0.5rem;
     background-color: lightgray;
     opacity: 0.7;
+    cursor: pointer;
+    :hover {
+      opacity: 1;
+    }
+  }
+`;
+const CreateRoomForm = styled.form`
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
+  input {
+    height: 2rem;
+    font-size: 16px;
+    border: 1px solid gray;
+    padding: 7px;
+    :focus {
+      background-color: beige;
+    }
+  }
+  button {
+    height: 2rem;
+    border: 1px solid gray;
+    padding: 10px;
+    background-color: lightgray;
+    opacity: 0.9;
+    cursor: pointer;
     :hover {
       opacity: 1;
     }
@@ -34,6 +62,7 @@ const Room = styled.div`
   padding: 1rem;
   border: 1px solid gray;
   border-radius: 1rem;
+  gap: 1rem;
   cursor: pointer;
   :hover {
     background-color: lightblue;
@@ -43,6 +72,7 @@ const RoomTitle = styled.span`
   font-size: 24px;
   margin-bottom: 1rem;
 `;
+
 const baseURL = process.env.REACT_APP_BASE_URL;
 
 export default function TalkingRooms() {
@@ -103,15 +133,15 @@ export default function TalkingRooms() {
         <button onClick={handleOutBtn}>나가기</button>
       </Header>
 
-      <form onSubmit={handleSubmit}>
-        <input type="roomName" value={roomName} onChange={handleChange} />
+      <CreateRoomForm onSubmit={handleSubmit}>
+        <input type="roomName" value={roomName} placeholder="방 이름 입력..." maxLength={'20'} onChange={handleChange} />
         <button>방 생성하기</button>
-      </form>
+      </CreateRoomForm>
       <RoomListGrid>
         {rooms.map((room, index) => (
           <Room key={index} onClick={() => EnterRoomHandler(room)}>
             <RoomTitle>{room}</RoomTitle>
-            <span>참가 인원</span>
+            <span>참가 인원 X/10 명</span>
             <span>{Date()}</span>
           </Room>
         ))}

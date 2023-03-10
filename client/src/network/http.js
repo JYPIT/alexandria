@@ -5,7 +5,9 @@ export default class HttpClient {
   async fetch(url, options) {
     const res = await fetch(`${this.baseURL}${url}`, {
       ...options,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
     let data;

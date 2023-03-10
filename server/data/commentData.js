@@ -8,10 +8,6 @@ export async function getCommentById(bookId, commentId) {
   return await db.execute(`SELECT * FROM comments WHERE bookId=?  AND id=?`, [bookId, commentId]);
 }
 
-export async function updateComment(text, bookId, commentId) {
-  return db.execute(`UPDATE comments SET text=? WHERE bookId=? AND id=?`, [text, bookId, commentId]).then(() => getCommentById(bookId, commentId));
-}
-
 export async function createComment(bookId, comment) {
   const { userId, username, avatar, text } = comment;
   return db
@@ -19,6 +15,10 @@ export async function createComment(bookId, comment) {
     .then((res) => getCommentById(bookId, res[0].insertId));
 }
 
-export function deleteComment(bookId, commentId) {
-  return db.execute('DELETE FROM comments WHERE bookId=? AND id=?', [bookId, commentId]);
+export async function updateComment(text, bookId, commentId) {
+  return db.execute(`UPDATE comments SET text=? WHERE bookId=? AND id=?`, [text, bookId, commentId]).then(() => getCommentById(bookId, commentId));
+}
+
+export function removeComment(bookId, commentId) {
+  db.execute('DELETE FROM comments WHERE bookId=? AND id=?', [bookId, commentId]);
 }

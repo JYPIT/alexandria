@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { adminService } from '..';
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,10 +12,19 @@ const CoverImg = styled.img`
   height: 100%;
 `;
 export default function Banner() {
+  const [banners, setBanners] = useState();
+  //   useEffect(() => {
+  //     setBanner('http://localhost:8080/assets/1678273097597.jpg');
+  //   }, []);
+
+  useEffect(() => {
+    adminService.getBanners().then((res) => setBanners(res));
+  }, []);
+
   return (
     <Wrapper>
-      <CoverImg
-        src="https://images.unsplash.com/photo-1590412701565-55de7fad7cab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+      <CoverImg //
+        src={banners && 'http://localhost:8080/assets/' + banners[0]}
         alt=""
       />
     </Wrapper>

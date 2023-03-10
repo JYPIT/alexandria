@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import LibraryBook from '../components/LibraryBook';
 import { useAuthContext } from '../context/AuthContext';
@@ -23,6 +25,13 @@ const Grid = styled.div`
 
 export default function Library() {
   const { user } = useAuthContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user === null) {
+      navigate('/', { replace: true });
+    }
+  }, [user]);
 
   const {
     getBooksFromLib: { isLoading, data: books },
