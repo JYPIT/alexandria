@@ -10,6 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   padding-top: 4rem;
 `;
+
 const CategoryTitle = styled.span`
   margin-left: 2rem;
   font-size: 2rem;
