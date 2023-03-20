@@ -87,12 +87,14 @@ export default function TalkingRoom() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentSocket) {
-      return;
-    } else {
-      setCurrentSocket(io(`${baseURL}/chat`));
-    }
-  }, []);
+    currentSocket && currentSocket.emit('join', { roomName, user });
+  }, [currentSocket, roomName, user]);
+
+  if (currentSocket) {
+    return;
+  } else {
+    setCurrentSocket(io(`${baseURL}/chat`));
+  }
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -102,10 +104,6 @@ export default function TalkingRoom() {
     currentSocket.emit('msg', { username: user.displayName, msg: text });
     setText('');
   };
-
-  useEffect(() => {
-    currentSocket && currentSocket.emit('join', { roomName, user });
-  }, [currentSocket, roomName, user]);
 
   if (currentSocket) {
     currentSocket.on('msg', (data) => {

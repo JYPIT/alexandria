@@ -31,7 +31,7 @@ export default function Library() {
     if (user === null) {
       navigate('/', { replace: true });
     }
-  }, [user]);
+  }, [user, navigate]);
 
   const {
     getBooksFromLib: { isLoading, data: books },

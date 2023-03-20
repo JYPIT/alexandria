@@ -82,19 +82,17 @@ export default function TalkingRooms() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentSocket) {
-      return;
-    } else {
-      setCurrentSocket(io(`${baseURL}/room`));
-    }
-  }, []);
-
-  useEffect(() => {
     currentSocket &&
       currentSocket.on('getRooms', (rooms) => {
         setRooms(rooms);
       });
   }, [currentSocket]);
+
+  if (currentSocket) {
+    return;
+  } else {
+    setCurrentSocket(io(`${baseURL}/room`));
+  }
 
   currentSocket &&
     currentSocket.on('createRoom', (rooms) => {
