@@ -82,19 +82,17 @@ export default function TalkingRooms() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentSocket) {
-      return;
-    } else {
-      setCurrentSocket(io(`${baseURL}/room`));
-    }
-  }, []);
-
-  useEffect(() => {
     currentSocket &&
       currentSocket.on('getRooms', (rooms) => {
         setRooms(rooms);
       });
   }, [currentSocket]);
+
+  if (currentSocket) {
+    return;
+  } else {
+    setCurrentSocket(io(`${baseURL}/room`));
+  }
 
   currentSocket &&
     currentSocket.on('createRoom', (rooms) => {
@@ -134,7 +132,7 @@ export default function TalkingRooms() {
       </Header>
 
       <CreateRoomForm onSubmit={handleSubmit}>
-        <input type="roomName" value={roomName} placeholder="방 이름 입력..." maxLength={'20'} onChange={handleChange} />
+        <input type="roomName" value={roomName} placeholder="생성할 방 이름 입력..." maxLength={'20'} onChange={handleChange} />
         <button>방 생성하기</button>
       </CreateRoomForm>
       <RoomListGrid>
