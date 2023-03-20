@@ -132,7 +132,7 @@ export default function TalkingRooms() {
       </Header>
 
       <CreateRoomForm onSubmit={handleSubmit}>
-        <input type="roomName" value={roomName} placeholder="방 이름 입력..." maxLength={'20'} onChange={handleChange} />
+        <input type="roomName" value={roomName} placeholder="생성할 방 이름 입력..." maxLength={'20'} onChange={handleChange} />
         <button>방 생성하기</button>
       </CreateRoomForm>
       <RoomListGrid>
