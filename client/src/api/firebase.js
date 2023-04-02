@@ -19,6 +19,8 @@ const database = getDatabase(app);
 // 로그인 & 로그아웃
 // navBar에 넣어서 실행하면 firebase에 의존하게되므로 여기서 직접 실행해준다.
 export function login() {
+  console.log(auth, provider);
+
   signInWithPopup(auth, provider).catch(console.error);
 }
 

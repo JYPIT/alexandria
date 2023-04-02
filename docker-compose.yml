@@ -1,0 +1,44 @@
+version: '3.7'
+services:
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /usr/app/node_modules
+      - ./client:/app
+
+  db:
+    build: ./mysql
+    restart: unless-stopped
+    container_name: mysql_test
+    volumes:
+      - ./mysql:/val/lib/mysql
+      - ./mysql/sqls/:/docker-entrypoint-initdb.d/
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'admin123'
+      MYSQL_DATABASE: alexandria
+
+  server:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    container_name: app_backend
+    volumes:
+      - /usr/app/node_modules
+      - ./server:/app
+    restart: always
+    depends_on:
+      - db
+
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - '80:80'
+    depends_on:
+      - server
