@@ -1,6 +1,7 @@
 import mysql from 'mysql2';
 import dotenv from 'dotenv';
 
+// docker test
 dotenv.config();
 
 const pool = mysql.createPool({
