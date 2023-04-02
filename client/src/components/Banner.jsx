@@ -24,7 +24,7 @@ export default function Banner() {
   return (
     <Wrapper>
       <CoverImg //
-        src={banners && 'http://localhost:8080/assets/' + banners[0]}
+        src={banners && 'http://localhost/api/assets/' + banners[0]}
         alt=""
       />
     </Wrapper>

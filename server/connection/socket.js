@@ -4,7 +4,7 @@ class Socket {
   constructor(server) {
     this.io = new Server(server, {
       cors: {
-        origin: '*',
+        origin: 'http://localhost:3000',
       },
     });
 
