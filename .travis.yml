@@ -14,6 +14,7 @@ script:
 
 after_success:
   - echo "TEST Success"
+  # hello
   # - docker build -t <docker hub id>/docker-client ./client
   # - docker build -t <docker hub id>/docker-server ./server
   # - docker build -t <docker hub id>/docker-nginx ./nginx
