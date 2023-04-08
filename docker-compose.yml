@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3'
 services:
   client:
     build:
@@ -7,6 +7,7 @@ services:
     volumes:
       - /usr/app/node_modules
       - ./client:/app
+    stdin_open: true #react 종료 시 버그 해결
 
   db:
     build: ./mysql
