@@ -5,8 +5,8 @@ services:
       dockerfile: Dockerfile
       context: ./client
     volumes:
-      - /usr/app/node_modules
-      - ./client:/app
+      - /usr/src/app/node_modules
+      - ./client:/usr/src/app
     stdin_open: true #react 종료 시 버그 해결
 
   db:
@@ -28,8 +28,8 @@ services:
       context: ./server
     container_name: app_backend
     volumes:
-      - /usr/app/node_modules
-      - ./server:/app
+      - /usr/src/app/node_modules
+      - ./server:/usr/src/app
     restart: always
 
   nginx:
