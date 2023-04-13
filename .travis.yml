@@ -13,7 +13,7 @@ script:
   - docker run -e CI=true jypit/alexandria npm run test -- --coverage
 
 after_success:
-  - echo "TEST Success"
+  - echo "TEST Success!!"
 
   # - docker build -t <docker hub id>/docker-client ./client
   # - docker build -t <docker hub id>/docker-server ./server

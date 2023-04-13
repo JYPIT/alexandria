@@ -1,4 +1,0 @@
-steps:
-  # running docker-compose test
-  - name: 'docker/compose:1.26.2'
-    args: ['up', '-d']

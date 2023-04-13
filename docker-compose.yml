@@ -1,12 +1,13 @@
-version: '3.7'
+version: '3'
 services:
   client:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: ./client
     volumes:
       - /usr/app/node_modules
       - ./client:/app
+    stdin_open: true #react 종료 시 버그 해결
 
   db:
     build: ./mysql
@@ -30,8 +31,6 @@ services:
       - /usr/app/node_modules
       - ./server:/app
     restart: always
-    depends_on:
-      - db
 
   nginx:
     restart: always
@@ -40,5 +39,3 @@ services:
       context: ./nginx
     ports:
       - '80:80'
-    depends_on:
-      - server
