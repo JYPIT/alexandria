@@ -29,7 +29,7 @@ services:
     container_name: app_backend
     volumes:
       - /usr/src/app/node_modules
-      - ./server:/usr/src/
+      - ./server:/usr/src/app
     restart: always
 
   nginx:
