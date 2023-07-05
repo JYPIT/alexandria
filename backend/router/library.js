@@ -1,5 +1,4 @@
 import express, { response } from 'express';
-import { db } from '../db/database.js';
 
 let libraries = {
   cOgqrqCxaLbHcRSKHuL1p8FeJRF3: [
@@ -37,8 +36,6 @@ const router = express.Router();
 
 router.get('/:uid', async (req, res, next) => {
   const userId = req.params.uid;
-  //   const data = await db.execute('');
-  //   console.log(data[0]);
 
   res.status(200).json(libraries[userId]);
 });
