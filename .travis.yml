@@ -1,35 +1,35 @@
-sudo: required
+# sudo: required
 
-language: generic
+# language: generic
 
-services:
-  - docker
+# services:
+#   - docker
 
-before_install:
-  - echo "Start creating an image with dockerfile"
-  - docker build -t jypit/alexandria -f ./client/Dockerfile ./client
+# before_install:
+#   - echo "Start creating an image with dockerfile"
+#   - docker build -t jypit/alexandria -f ./client/Dockerfile ./client
 
-script:
-  - docker run -e CI=true jypit/alexandria npm run test -- --coverage
+# script:
+#   - docker run -e CI=true jypit/alexandria npm run test -- --coverage
 
-after_success:
-  - echo "TEST Success!!"
+# after_success:
+#   - echo "TEST Success!!"
 
-  # - docker build -t <docker hub id>/docker-client ./client
-  # - docker build -t <docker hub id>/docker-server ./server
-  # - docker build -t <docker hub id>/docker-nginx ./nginx
+#   # - docker build -t <docker hub id>/docker-client ./client
+#   # - docker build -t <docker hub id>/docker-server ./server
+#   # - docker build -t <docker hub id>/docker-nginx ./nginx
 
-  # - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+#   # - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  # - docker push <docker hub id>/docker-client
-  # - docker push <docker hub id>/docker-server
-  # - docker push <docker hub id>/docker-nginx
-# deploy:
-#   provider: elasticbeanstalk
-#   region: 'ap-northeast3'
-#   app: 'docker 이름'
-#   env: 'env 이름'
-#   bucket_name: ''
-#   bucket_path: ''
-#   on:
-#     branch: master
+#   # - docker push <docker hub id>/docker-client
+#   # - docker push <docker hub id>/docker-server
+#   # - docker push <docker hub id>/docker-nginx
+# # deploy:
+# #   provider: elasticbeanstalk
+# #   region: 'ap-northeast3'
+# #   app: 'docker 이름'
+# #   env: 'env 이름'
+# #   bucket_name: ''
+# #   bucket_path: ''
+# #   on:
+# #     branch: master

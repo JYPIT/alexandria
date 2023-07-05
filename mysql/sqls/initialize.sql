@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS alexandria;
+
+CREATE DATABASE alexandria;
 USE alexandria;
 
 CREATE TABLE comments(

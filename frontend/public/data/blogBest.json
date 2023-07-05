@@ -1,0 +1,628 @@
+{
+  "version": "20131101",
+  "logo": "http://image.aladin.co.kr/img/header/2011/aladin_logo_new.gif",
+  "title": "알라딘 블로거 베스트셀러 리스트 - 국내도서",
+  "link": "https://www.aladin.co.kr/shop/common/wbest.aspx?BestType=BlogBest&amp;BranchType=1&amp;partner=openAPI",
+  "pubDate": "Sat, 18 Feb 2023 05:43:14 GMT",
+  "totalResults": 100,
+  "startIndex": 1,
+  "itemsPerPage": 12,
+  "query": "QueryType=BLOGBEST;SearchTarget=Book",
+  "searchCategoryId": 0,
+  "searchCategoryName": "국내도서",
+  "item": [
+    {
+      "title": "작가는 어떻게 읽는가 - 조지 손더스의 쓰기를 위한 읽기 수업",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=285827594&amp;partner=openAPI&amp;start=api",
+      "author": "조지 손더스 (지은이), 정영목 (옮긴이)",
+      "pubDate": "2023-02-08",
+      "description": "엄선한 작품 7편을 토대로 그 수업의 비전을 독자들과 공유한다. 그리하여 우리는 저자를 통해 체호프에게서 다음 페이지를 읽게 하는 힘을, 톨스토이에게서 인과성의 중요성을, 고골에게서 거짓으로 진실을 말하는 법 등을 배운다.",
+      "isbn": "K482831619",
+      "isbn13": "9791167740892",
+      "itemId": 285827594,
+      "priceSales": 23400,
+      "priceStandard": 26000,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 1300,
+      "cover": "https://image.aladin.co.kr/product/28582/75/cover/k482831619_1.jpg",
+      "categoryId": 51537,
+      "categoryName": "국내도서>인문학>책읽기/글쓰기>책읽기",
+      "publisher": "어크로스",
+      "salesPoint": 23240,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 8,
+      "bestRank": 1,
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[100자평]체호프나 고골, 예전에 연극작품으로 접해본 분들인데 원...",
+          "writer": "djqjd",
+          "link": "https://blog.aladin.co.kr/731818146/14352142?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]소장각입니다",
+          "writer": "코코",
+          "link": "https://blog.aladin.co.kr/758692156/14350261?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]소설을 쓰려는 사람들에게, 글을 시작했지만 자주 막히는...",
+          "writer": "에필립",
+          "link": "https://blog.aladin.co.kr/798090175/14343282?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]‘쓰기를 위한 읽기 수업‘이라는 표현이 너무 와닿는다....",
+          "writer": "호섭이",
+          "link": "https://blog.aladin.co.kr/780246166/14333036?partner=openAPI"
+        },
+        {
+          "reviewRank": 2,
+          "title": "[100자평]제목은 왜 바꿨을까? 원제가 훨씬 멋진데...가뜩이나 ...",
+          "writer": "ftQtf",
+          "link": "https://blog.aladin.co.kr/700979179/14331423?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "좌파의 길 - 식인 자본주의에 반대한다",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=309923663&amp;partner=openAPI&amp;start=api",
+      "author": "낸시 프레이저 (지은이), 장석준 (옮긴이)",
+      "pubDate": "2023-02-05",
+      "description": "동시대 가장 독창적인 사회철학자, 낸시 프레이저의 역작! 암울한 우리 시대의 ‘가장 우아한 자본주의론’이라 평가받는 이 책은 한 마르크스주의 노학자가 생애 말년에 뜨거운 마음으로 써 내려간, ‘좌파의 길’에 대한 절절한 모색이기도 하다.",
+      "isbn": "K012831406",
+      "isbn13": "9791192085913",
+      "itemId": 309923663,
+      "priceSales": 17550,
+      "priceStandard": 19500,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 970,
+      "cover": "https://image.aladin.co.kr/product/30992/36/cover/k012831406_1.jpg",
+      "categoryId": 51233,
+      "categoryName": "국내도서>사회과학>정치학/외교학/행정학>정치학 일반",
+      "publisher": "서해문집",
+      "salesPoint": 26050,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 9,
+      "bestRank": 2,
+      "seriesInfo": {
+        "seriesId": 1011374,
+        "seriesLink": "http://www.aladin.co.kr/shop/common/wseriesitem.aspx?SRID=1011374&amp;partner=openAPI",
+        "seriesName": "서해문집 사회과학 시리즈 "
+      },
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[100자평]이 책의 원제는 ‘Cannibal Capitalism’...",
+          "writer": "잠자냥",
+          "link": "https://blog.aladin.co.kr/socker/14342281?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]이 시대에 꼭 필요한 책! 구매합니다.",
+          "writer": "salad74",
+          "link": "https://blog.aladin.co.kr/768431106/14337480?partner=openAPI"
+        },
+        {
+          "reviewRank": 2,
+          "title": "[100자평]깨시민을 위한 책이구나",
+          "writer": "love",
+          "link": "https://blog.aladin.co.kr/726006136/14333665?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]현대 정치학의 대가 낸시 프레이저의 저서가 또 나오다니...",
+          "writer": "ㅡㅡ",
+          "link": "https://blog.aladin.co.kr/727682126/14325751?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]300여 쪽에 21세기 세상에 대한 ..",
+          "writer": "합리적궤변",
+          "link": "https://blog.aladin.co.kr/759835147/14325626?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "흰옷을 입은 여인",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=310561450&amp;partner=openAPI&amp;start=api",
+      "author": "크리스티앙 보뱅 (지은이), 이창실 (옮긴이)",
+      "pubDate": "2023-02-12",
+      "description": "프랑스 작가 크리스티앙 보뱅이 19세기를 살았던 미국 시인 에밀리 디킨슨에게 바치는 애정과 경의요, 한 편의 시적 전기물이다. 독립적인 짧은 단락들을 통해 에밀리 디킨슨의 삶의 일화 하나하나가 보뱅의 손끝에서 의미를 부여받고 더없이 아름다운 장면들로 재탄생한다.",
+      "isbn": "K482831421",
+      "isbn13": "9791190533263",
+      "itemId": 310561450,
+      "priceSales": 12600,
+      "priceStandard": 14000,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 700,
+      "cover": "https://image.aladin.co.kr/product/31056/14/cover/k482831421_1.jpg",
+      "categoryId": 51373,
+      "categoryName": "국내도서>에세이>외국에세이",
+      "publisher": "1984Books",
+      "salesPoint": 5420,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 10,
+      "bestRank": 3,
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[100자평]이것은 시인가 전기인가, 아니면 두 시인의 영혼의 고백...",
+          "writer": "잠자냥",
+          "link": "https://blog.aladin.co.kr/socker/14356635?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]한 작가가 다른 한 작가에게 오롯이 바치는 애정어린 글...",
+          "writer": "dkfudzzang",
+          "link": "https://blog.aladin.co.kr/780593143/14355048?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]보뱅이 에밀리 디킨스에게 남긴 애정 가득한 글을 만나보...",
+          "writer": "행복한독서가",
+          "link": "https://blog.aladin.co.kr/788647164/14355000?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]하드 커버는 아니고... 책 덧싸개를 벗겨낸 본 책의 ...",
+          "writer": "동작블루스",
+          "link": "https://blog.aladin.co.kr/surreal/14354838?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]조금 다른 얘기인데 이 출판사, 특히 이 책은 냄새가....",
+          "writer": "파브레가스",
+          "link": "https://blog.aladin.co.kr/722669155/14353066?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "실버뷰",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=310891695&amp;partner=openAPI&amp;start=api",
+      "author": "존 르 카레 (지은이), 조영학 (옮긴이)",
+      "pubDate": "2023-02-20",
+      "description": "지난 60여 년간 전 세계 문단과 독자들의 열렬한 지지를 받아온 작가, 존 르 카레의 유작 《실버뷰》가 출간된다. 결국 세상에 내놓지 못한 채 미완으로 남아있던 원고를, 아들이자 소설가인 닉 콘웰이 마무리해 발표한 공식적으로 존 르 카레의 스물여섯 번째 장편소설이다.",
+      "isbn": "8925577089",
+      "isbn13": "9788925577081",
+      "itemId": 310891695,
+      "priceSales": 16200,
+      "priceStandard": 18000,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 900,
+      "cover": "https://image.aladin.co.kr/product/31089/16/cover/8925577089_1.jpg",
+      "categoryId": 107436,
+      "categoryName": "국내도서>소설/시/희곡>액션/스릴러소설>외국 액션/스릴러소설",
+      "publisher": "알에이치코리아(RHK)",
+      "salesPoint": 3240,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 10,
+      "bestRank": 4,
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[100자평]존 르 카레의 유작이다. 그 이상의 의미가 있을까.",
+          "writer": "아는언니",
+          "link": "https://blog.aladin.co.kr/754023194/14355148?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "방주",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=310624125&amp;partner=openAPI&amp;start=api",
+      "author": "유키 하루오 (지은이), 김은모 (옮긴이)",
+      "pubDate": "2023-02-20",
+      "description": "주인공 슈이치는 대학 시절 친구들, 그리고 사촌 형과 함께 산속의 지하 건축물을 찾아간다. 그러다 우연히 만난 길 잃은 가족 세 명과 함께 지하 건축물에서 하룻밤을 보내기로 한다. 다음 날 새벽녘, 지진이 발생해 출입문이 커다란 바위로 막히는데...",
+      "isbn": "K672831528",
+      "isbn13": "9791189571894",
+      "itemId": 310624125,
+      "priceSales": 14850,
+      "priceStandard": 16500,
+      "mallType": "BOOK",
+      "stockStatus": "예약판매",
+      "mileage": 820,
+      "cover": "https://image.aladin.co.kr/product/31062/41/cover/k672831528_1.jpg",
+      "categoryId": 51058,
+      "categoryName": "국내도서>소설/시/희곡>추리/미스터리소설>일본 추리/미스터리소설",
+      "publisher": "블루홀식스(블루홀6)",
+      "salesPoint": 11480,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 10,
+      "bestRank": 5,
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[100자평]스포절대금지. 와. 제목부터 범상치 않을것같은 느낌이라...",
+          "writer": "mamadodo",
+          "link": "https://blog.aladin.co.kr/784876140/14350749?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]스포절대금지. 와. 제목부터 범상치 않을것같은 느낌이라...",
+          "writer": "mamadodo",
+          "link": "https://blog.aladin.co.kr/784876140/14350739?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]평생 기억에 남을 미친 반전이라니.. 미스터리를 피해왔...",
+          "writer": "정원",
+          "link": "https://blog.aladin.co.kr/712783247/14350563?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]호평 일색에 장르 문학계에서는 굉장히 핫한 작품인듯 한...",
+          "writer": "사율",
+          "link": "https://blog.aladin.co.kr/783144176/14349790?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]뇌 정지 미친 반전! 전율의 엔딩이라고 알려진 책의 출...",
+          "writer": "Kandhee",
+          "link": "https://blog.aladin.co.kr/742534188/14349462?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "수호자들",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=309556137&amp;partner=openAPI&amp;start=api",
+      "author": "존 그리샴 (지은이), 남명성 (옮긴이)",
+      "pubDate": "2023-01-27",
+      "description": "《수호자들》은 《타임 투 킬》, 《펠리컨 브리프》 등 수많은 베스트셀러를 배출하고 현재도 활발한 집필 활동을 하고 있는, 명실공히 ‘올타임 레전드’ 소설가로 인정받는 존 그리샴이 내놓은 색다른 주제 의식의 법정 소설이다.",
+      "isbn": "K402831002",
+      "isbn13": "9791169793087",
+      "itemId": 309556137,
+      "priceSales": 16200,
+      "priceStandard": 18000,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 900,
+      "cover": "https://image.aladin.co.kr/product/30955/61/cover/k402831002_1.jpg",
+      "categoryId": 107436,
+      "categoryName": "국내도서>소설/시/희곡>액션/스릴러소설>외국 액션/스릴러소설",
+      "publisher": "하빌리스",
+      "salesPoint": 7360,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 10,
+      "bestRank": 6,
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]존 그리샴이 그의 시그니처 주 ..",
+          "writer": "cat7",
+          "link": "https://blog.aladin.co.kr/709999203/14359460?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]수호자들",
+          "writer": "푸른고양이",
+          "link": "https://blog.aladin.co.kr/735552137/14359323?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]역시 존 그리샴.",
+          "writer": "살리에르",
+          "link": "https://blog.aladin.co.kr/sci73/14358884?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]수호자들",
+          "writer": "gazahbs",
+          "link": "https://blog.aladin.co.kr/721747156/14358563?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]수호자들",
+          "writer": "은근공주",
+          "link": "https://blog.aladin.co.kr/sasakki81/14358550?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "비잔티움의 역사 - 천년의 제국, 동서양이 충돌하는 문명의 용광로에 세운 그리스도교 세계의 정점",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=310568251&amp;partner=openAPI&amp;start=api",
+      "author": "디오니시오스 스타타코풀로스 (지은이), 최하늘 (옮긴이)",
+      "pubDate": "2023-02-20",
+      "description": "비잔티움 제국에 대한 고정관념에 도전하는 책이다. 논쟁적인 질문을 던지며 비잔티움 역사의 권위자로 평가받는 저자는 기존의 비잔티움 역사서들이 주로 정치·군사 사건을 다루는 것과는 달리 사회·경제·문화까지 동등한 비중으로 다룸으로써, 고대와 근대 세계를 연결한 이 제국의 역사가 오늘날의 사람들에게 어떤 의미인지를 알려준다.",
+      "isbn": "K992831424",
+      "isbn13": "9791192444383",
+      "itemId": 310568251,
+      "priceSales": 19800,
+      "priceStandard": 22000,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 1100,
+      "cover": "https://image.aladin.co.kr/product/31056/82/cover/k992831424_1.jpg",
+      "categoryId": 52597,
+      "categoryName": "국내도서>역사>서양사>비잔티움/이슬람 강성기",
+      "publisher": "더숲",
+      "salesPoint": 4040,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 10,
+      "bestRank": 7,
+      "seriesInfo": {
+        "seriesId": 999559,
+        "seriesLink": "http://www.aladin.co.kr/shop/common/wseriesitem.aspx?SRID=999559&amp;partner=openAPI",
+        "seriesName": "더숲히스토리 2"
+      },
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[100자평]내용도 충실하고 번역도 좋네요. 다만 고유명사에 있어선...",
+          "writer": "fkdznf",
+          "link": "https://blog.aladin.co.kr/720902233/14359138?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "다윈의 사도들 - 최재천이 만난 다윈주의자들",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=310369546&amp;partner=openAPI&amp;start=api",
+      "author": "최재천 (지은이), 다윈 포럼 (기획)",
+      "pubDate": "2023-02-12",
+      "description": "다윈주의의 길을 함께 걷는 도반(道伴)들이 세계 곳곳에 있다는 것을, 그리고 다윈의 진화론적 통찰이 계몽주의 이래 과학에서부터 경제학과 철학에 이르기까지 학문 세계 전반에 깊이 스며들어 있음을 보여 주는 세계 다윈주의자 인터뷰집이다.",
+      "isbn": "K522831515",
+      "isbn13": "9791192107325",
+      "itemId": 310369546,
+      "priceSales": 19800,
+      "priceStandard": 22000,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 1100,
+      "cover": "https://image.aladin.co.kr/product/31036/95/cover/k522831515_1.jpg",
+      "categoryId": 51199,
+      "categoryName": "국내도서>과학>생명과학>진화론",
+      "publisher": "사이언스북스",
+      "salesPoint": 9510,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 10,
+      "bestRank": 8,
+      "seriesInfo": {
+        "seriesId": 680527,
+        "seriesLink": "http://www.aladin.co.kr/shop/common/wseriesitem.aspx?SRID=680527&amp;partner=openAPI",
+        "seriesName": "드디어 다윈 6"
+      },
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[100자평]믿고보는 최재천 교수님의 책 찐이다",
+          "writer": "ssokim99",
+          "link": "https://blog.aladin.co.kr/729231176/14359516?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]사는 일이 점점 공허해지는 요즘 존재에 대한 이해가 가...",
+          "writer": "아는언니",
+          "link": "https://blog.aladin.co.kr/754023194/14333839?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]한번은 읽어보고 싶은 책입니다",
+          "writer": "PLUS",
+          "link": "https://blog.aladin.co.kr/704080182/14333558?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "선생님이 알아서는 안 되는 학교 폭력 일기",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=308834539&amp;partner=openAPI&amp;start=api",
+      "author": "쿤룬 (지은이), 강초아 (옮긴이)",
+      "pubDate": "2023-01-27",
+      "description": "살인마에게 아버지를 잃은 미소녀 장페이야는 학교 폭력 피해자다. 사채업자에 마약업자까지 연결된 학교 폭력 가해자는 그녀의 삶을 송두리째 뒤흔들고, 급기야 촨환의 충격적인 비밀이 밝혀진다. 장페이야는 이제 참지 않기로 한다.",
+      "isbn": "K252831389",
+      "isbn13": "9791160078749",
+      "itemId": 308834539,
+      "priceSales": 14670,
+      "priceStandard": 16300,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 810,
+      "cover": "https://image.aladin.co.kr/product/30883/45/cover/k252831389_1.jpg",
+      "categoryId": 51067,
+      "categoryName": "국내도서>소설/시/희곡>추리/미스터리소설>기타국가 추리/미스터리소설",
+      "publisher": "한즈미디어(한스미디어)",
+      "salesPoint": 1175,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 10,
+      "bestRank": 9,
+      "seriesInfo": {
+        "seriesId": 1096438,
+        "seriesLink": "http://www.aladin.co.kr/shop/common/wseriesitem.aspx?SRID=1096438&amp;partner=openAPI",
+        "seriesName": "쿤룬 삼부곡 2"
+      },
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]잔혹 복수극",
+          "writer": "왕도원",
+          "link": "https://blog.aladin.co.kr/765760132/14358194?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]선생님이 알아서는 안되는 학교 ..",
+          "writer": "again 20",
+          "link": "https://blog.aladin.co.kr/766465147/14356999?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]충격적이지만 재밌어요!",
+          "writer": "책이좋아서",
+          "link": "https://blog.aladin.co.kr/happyiioo/14356706?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]선생님이 알아서는 안 되는 학교..",
+          "writer": "PILLARY",
+          "link": "https://blog.aladin.co.kr/798689154/14356688?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]선생님이 알아서는 안 되는 학교..",
+          "writer": "푸른고양이",
+          "link": "https://blog.aladin.co.kr/735552137/14356359?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "파인먼 평전 - 괴짜 물리학자가 남긴 현대 물리학의 위대한 이정표",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=309688129&amp;partner=openAPI&amp;start=api",
+      "author": "제임스 글릭 (지은이), 양병찬, 김민수 (옮긴이)",
+      "pubDate": "2023-01-25",
+      "description": "상대성이론과 양자역학의 등장, 핵폭탄의 발명, 핵보다 더 작은 입자의 등장, 베타 붕괴, 우주왕복선 챌린저호 폭발 참사. 20세기 물리학은 어느 때보다 큰 번영을 누렸으며, 큰 비극을 안겨주었다. 이 모든 이정표에 이름을 새긴 위대한 과학자가 바로 리처드 파인먼이다.",
+      "isbn": "896262480X",
+      "isbn13": "9788962624809",
+      "itemId": 309688129,
+      "priceSales": 39600,
+      "priceStandard": 44000,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 2200,
+      "cover": "https://image.aladin.co.kr/product/30968/81/cover/896262480x_1.jpg",
+      "categoryId": 51010,
+      "categoryName": "국내도서>과학>과학자의 생애",
+      "publisher": "동아시아",
+      "salesPoint": 4130,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 10,
+      "bestRank": 10,
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]천재 물리학자 파인먼의 35주기,..",
+          "writer": "초란공",
+          "link": "https://blog.aladin.co.kr/712851116/14351373?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "희망의 끈",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=309123340&amp;partner=openAPI&amp;start=api",
+      "author": "히가시노 게이고 (지은이), 김난주 (옮긴이)",
+      "pubDate": "2022-11-16",
+      "description": "도쿄에서 일어난 살인 사건의 범인을 추적하는 과정에서 얽히고설킨 두 가족의 불행한 과거사가 조금씩 드러나고, 상상을 초월하는 두 가족의 악연과 복잡한 운명에 젊은 형사가 고뇌한다. 진정한 가족의 의미를 되돌아보게 하는 문제작.",
+      "isbn": "K612831580",
+      "isbn13": "9791192483146",
+      "itemId": 309123340,
+      "priceSales": 16920,
+      "priceStandard": 18800,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 940,
+      "cover": "https://image.aladin.co.kr/product/30912/33/cover/k612831580_2.jpg",
+      "categoryId": 51058,
+      "categoryName": "국내도서>소설/시/희곡>추리/미스터리소설>일본 추리/미스터리소설",
+      "publisher": "재인",
+      "salesPoint": 50515,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 10,
+      "bestRank": 11,
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]희망의끈",
+          "writer": "눈썹달",
+          "link": "https://blog.aladin.co.kr/754818159/14353376?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰][마이리뷰] 희망의 끈",
+          "writer": "chika",
+          "link": "https://blog.aladin.co.kr/lifewith_/14350884?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰][서평] 희망의 끈 - 히가시노게..",
+          "writer": "소소키미",
+          "link": "https://blog.aladin.co.kr/704418152/14350686?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]희망의 끈",
+          "writer": "gazahbs",
+          "link": "https://blog.aladin.co.kr/721747156/14350190?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]희망의 끈",
+          "writer": "카즈마",
+          "link": "https://blog.aladin.co.kr/709195173/14345175?partner=openAPI"
+        }
+      ]
+    },
+    {
+      "title": "뜨거운 피",
+      "link": "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=310644602&amp;partner=openAPI&amp;start=api",
+      "author": "이렌 네미롭스키 (지은이), 이상해 (옮긴이)",
+      "pubDate": "2023-02-13",
+      "description": "홀로코스트로 안타깝게 희생된 작가, 이렌 네미롭스키. 사후 60여 년 만에 공개된 비운의 소설 『뜨거운 피』는 시종 위태롭고 아슬아슬하다. 폐쇄적인 시골 마을에서 벌어진 참극과 무언가를 숨기고 있는 듯한 이웃들. 그리고 그 사이에서 뜨겁게 타오르는 사랑이 한 편의 드라마처럼 펼쳐진다.",
+      "isbn": "K542831525",
+      "isbn13": "9791198088505",
+      "itemId": 310644602,
+      "priceSales": 11520,
+      "priceStandard": 12800,
+      "mallType": "BOOK",
+      "stockStatus": "",
+      "mileage": 640,
+      "cover": "https://image.aladin.co.kr/product/31064/46/cover/k542831525_1.jpg",
+      "categoryId": 50921,
+      "categoryName": "국내도서>소설/시/희곡>프랑스소설",
+      "publisher": "빛소굴",
+      "salesPoint": 1330,
+      "adult": false,
+      "fixedPrice": true,
+      "customerReviewRank": 10,
+      "bestRank": 12,
+      "seriesInfo": {
+        "seriesId": 1049017,
+        "seriesLink": "http://www.aladin.co.kr/shop/common/wseriesitem.aspx?SRID=1049017&amp;partner=openAPI",
+        "seriesName": "페이지터너스 "
+      },
+      "subInfo": {},
+      "reviewList": [
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]뜨거운 피 _ 이렌 네미롭스키",
+          "writer": "사율",
+          "link": "https://blog.aladin.co.kr/783144176/14356511?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[마이리뷰]피를 타고 흐르는 희미한 기억 ..",
+          "writer": "Austerlitz",
+          "link": "https://blog.aladin.co.kr/700564149/14355061?partner=openAPI"
+        },
+        {
+          "reviewRank": 10,
+          "title": "[100자평]초반에는 이야기의 전개가 짐작 가능한 방향으로 흘러가다...",
+          "writer": "오렌지고양이",
+          "link": "https://blog.aladin.co.kr/776022137/14354899?partner=openAPI"
+        }
+      ]
+    }
+  ]
+}
