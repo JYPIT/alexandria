@@ -1,5 +1,4 @@
 import express, { response } from 'express';
-import { db } from '../db/database.js';
 
 let libraries = {
   cOgqrqCxaLbHcRSKHuL1p8FeJRF3: [
