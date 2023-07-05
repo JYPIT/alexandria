@@ -23,7 +23,7 @@ after_success:
   - docker push jypit/docker-backend
   - docker push jypit/docker-nginx
 
-  - echo "Push Successed!!"
+  - echo "Push Successed!!!"
 # deploy:
 #   provider: elasticbeanstalk
 #   region: 'ap-northeast3'
