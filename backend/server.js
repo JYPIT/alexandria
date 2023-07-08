@@ -19,7 +19,7 @@ const PORT = parseInt(process.env.PORT) || 8080;
 const app = express();
 
 const corsOption = {
-  origin: 'http://localhost:3000',
+  origin: process.env.REACT_APP_CLIENT_URL || 'http://localhost:3000',
   Credential: true,
 };
 
