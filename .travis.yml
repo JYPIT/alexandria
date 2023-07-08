@@ -1,35 +1,26 @@
-language: generic
+# language: generic
 
-sudo: required
+# sudo: required
 
-services:
-  - docker
+# services:
+#   - docker
 
-before_install:
-  - echo "Start creating an image with dockerfile"
-  - docker build -t jypit/alexandria -f ./frontend/Dockerfile.dev ./frontend
+# before_install:
+#   - echo "Start creating an image with dockerfile"
+#   - docker build -t jypit/alexandria -f ./frontend/Dockerfile.dev ./frontend
 
-script:
-  - docker run -e CI=true jypit/alexandria npm run test
+# script:
+#   - docker run -e CI=true jypit/alexandria npm run test
 
-after_success:
-  - docker build -t jypit/docker-frontend ./frontend
-  - docker build -t jypit/docker-backend ./backend
-  - docker build -t jypit/docker-nginx ./nginx
+# after_success:
+#   - docker build -t jypit/docker-frontend ./frontend
+#   - docker build -t jypit/docker-backend ./backend
+#   - docker build -t jypit/docker-nginx ./nginx
 
-  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+#   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push jypit/docker-frontend
-  - docker push jypit/docker-backend
-  - docker push jypit/docker-nginx
+#   - docker push jypit/docker-frontend
+#   - docker push jypit/docker-backend
+#   - docker push jypit/docker-nginx
 
-  - echo "Push Successed!!!"
-# deploy:
-#   provider: elasticbeanstalk
-#   region: 'ap-northeast3'
-#   app: 'docker 이름'
-#   env: 'env 이름'
-#   bucket_name: ''
-#   bucket_path: ''
-#   on:
-#     branch: master
+#   - echo "Push Successed!!!"

@@ -1,31 +1,47 @@
-version: '3'
+version: '3.8'
 services:
   frontend:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./frontend
+    image: 'jypit/docker-frontend'
+    # build:
+    #   dockerfile: Dockerfile
+    #   context: ./frontend
     volumes:
       - /app/node_modules
       - ./frontend:/app
     stdin_open: true #react 종료 시 버그 해결
+    mem_limit: 128m
 
   nginx:
     restart: always
-    build:
-      dockerfile: Dockerfile
-      context: ./nginx
+    image: 'jypit/docker-nginx'
+    # build:
+    #   dockerfile: Dockerfile
+    #   context: ./nginx
     ports:
-      - '3000:80'
+      - '80:80'
+    links:
+      - frontend
+      - backend
+    mem_limit: 128m
 
   backend:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./backend
+    image: 'jypit/docker-backend'
     container_name: app_backend
+    # build:
+    #   dockerfile: Dockerfile
+    #   context: ./backend
     volumes:
       - /app/node_modules
       - ./backend:/app
+    environment:
+      MYSQL_HOST: alexandria-mysql.c7wog6so0rnh.ap-northeast-2.rds.amazonaws.com
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: alexandria
+      MYSQL_PORT: 3306
+    mem_limit: 128m
 
+  # # LOCAL DEV
   # mysql:
   #   build: ./mysql
   #   restart: unless-stopped
