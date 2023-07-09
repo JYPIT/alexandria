@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import fetch from 'node-fetc';
 
 const router = express.Router();
 
